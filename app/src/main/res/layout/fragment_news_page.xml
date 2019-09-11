@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.NewsPageFragment">
+
+    <TextView
+        android:id="@+id/details_news_info"
+        style="@style/DetailsInfoStyle"
+        android:text="@string/sample_news_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/details_news_title"
+        style="@style/DetailsTitleStyle"
+        android:text="@string/sample_news_headline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_news_info" />
+
+    <ImageView
+        android:id="@+id/details_news_image"
+        android:contentDescription="@string/news_image"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
+        android:layout_margin="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_news_title"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/details_news_byline"
+        style="@style/DetailsInfoStyle"
+        android:text="@string/sample_news_byline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_news_image" />
+
+    <TextView
+        android:id="@+id/details_news_body"
+        style="@style/DetailsBodyStyle"
+        android:text="@string/sample_news_body"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_news_byline" />
+
+    <TextView
+        android:id="@+id/details_news_notes"
+        style="@style/DetailsMessageStyle"
+        android:text="@string/details_news_notes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_news_body" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

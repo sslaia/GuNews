@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_headlines">
+
+    <fragment
+        android:id="@+id/nav_headlines"
+        android:name="com.blogspot.sslaia.gunews.ui.HeadlinesFragment"
+        android:label="@string/menu_headlines"
+        tools:layout="@layout/fragment_news" />
+
+    <fragment
+        android:id="@+id/nav_society"
+        android:name="com.blogspot.sslaia.gunews.ui.SocietyFragment"
+        android:label="@string/menu_society"
+        tools:layout="@layout/fragment_news" />
+
+    <fragment
+        android:id="@+id/nav_technology"
+        android:name="com.blogspot.sslaia.gunews.ui.TechnologyFragment"
+        android:label="@string/menu_technology"
+        tools:layout="@layout/fragment_news" />
+
+    <fragment
+        android:id="@+id/nav_science"
+        android:name="com.blogspot.sslaia.gunews.ui.ScienceFragment"
+        android:label="@string/menu_science"
+        tools:layout="@layout/fragment_news" />
+
+    <fragment
+        android:id="@+id/nav_politics"
+        android:name="com.blogspot.sslaia.gunews.ui.PoliticsFragment"
+        android:label="@string/menu_politics"
+        tools:layout="@layout/fragment_news" />
+
+    <fragment
+        android:id="@+id/nav_football"
+        android:name="com.blogspot.sslaia.gunews.ui.FootballFragment"
+        android:label="@string/menu_football"
+        tools:layout="@layout/fragment_news" />
+
+    <fragment
+        android:id="@+id/nav_share"
+        android:name="com.blogspot.sslaia.gunews.ui.ShareFragment"
+        android:label="@string/menu_share"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/nav_feedback"
+        android:name="com.blogspot.sslaia.gunews.ui.FeedbackFragment"
+        android:label="@string/menu_feedback"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.blogspot.sslaia.gunews.ui.AboutFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/newsPageFragment"
+        android:name="com.blogspot.sslaia.gunews.ui.NewsPageFragment"
+        android:label="fragment_news_page"
+        tools:layout="@layout/fragment_news_page" />
+
+</navigation>

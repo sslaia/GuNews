@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_headlines"
+            android:icon="@drawable/ic_menu_headlines"
+            android:title="@string/menu_headlines" />
+        <item
+            android:id="@+id/nav_society"
+            android:icon="@drawable/ic_menu_society"
+            android:title="@string/menu_society" />
+        <item
+            android:id="@+id/nav_technology"
+            android:icon="@drawable/ic_menu_technology"
+            android:title="@string/menu_technology" />
+        <item
+            android:id="@+id/nav_science"
+            android:icon="@drawable/ic_menu_science"
+            android:title="@string/menu_science" />
+        <item
+            android:id="@+id/nav_politics"
+            android:icon="@drawable/ic_menu_politics"
+            android:title="@string/menu_politics" />
+        <item
+            android:id="@+id/nav_football"
+            android:icon="@drawable/ic_menu_football"
+            android:title="@string/menu_football" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/action_share" />
+            <item
+                android:id="@+id/nav_feedback"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/action_feedback" />
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_menu_about"
+                android:title="@string/action_about" />
+        </menu>
+    </item>
+
+</menu>

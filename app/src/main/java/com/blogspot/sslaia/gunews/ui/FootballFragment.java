@@ -8,13 +8,15 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.blogspot.sslaia.gunews.MainActivity;
 import com.blogspot.sslaia.gunews.R;
 import com.blogspot.sslaia.gunews.adapter.NewsAdapter;
 import com.blogspot.sslaia.gunews.viewmodel.NewsViewModel;
@@ -24,8 +26,6 @@ import com.blogspot.sslaia.gunews.webmodel.NewsResult;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.blogspot.sslaia.gunews.ui.HeadlinesFragment.NEWS_PAGE_URL;
 
 public class FootballFragment extends Fragment
         implements NewsAdapter.OnItemClickListener {
@@ -37,7 +37,7 @@ public class FootballFragment extends Fragment
     // page (the page no to be display)
     // from-date (dd/mm/yyyy: from a given date)
     // apiKey (api key)
-    String requestUrl = "https://content.guardianapis.com/search?show-fields=headline%2Cbyline%2CshortUrl%2Cthumbnail&section=football&page-size=50&api-key=";
+    String requestUrl = "https://content.guardianapis.com/search?show-fields=headline%2Cbyline%2CshortUrl%2Cthumbnail&section=football&page-size=15&api-key=";
     private ArrayList<NewsResult> newsArrayList = new ArrayList<>();
     private Application application;
     private NewsAdapter newsAdapter;
@@ -46,7 +46,8 @@ public class FootballFragment extends Fragment
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_news, container, false);
+        View view = inflater.inflate(R.layout.fragment_news, container, false);
+        return view;
     }
 
     @Override
@@ -59,7 +60,7 @@ public class FootballFragment extends Fragment
 
         newsListViewModel = ViewModelProviders.of(this, factory).get(NewsViewModel.class);
         newsListViewModel.init();
-        newsListViewModel.getNewsRepository().observe(this, new Observer<NewsItem>() {
+        newsListViewModel.getNewsRepository().observe(getViewLifecycleOwner(), new Observer<NewsItem>() {
             @Override
             public void onChanged(NewsItem newsItems) {
                 List<NewsResult> newsArticles = newsItems.getResponse().getResults();
@@ -78,8 +79,8 @@ public class FootballFragment extends Fragment
             newsAdapter.setOnItemClickListener(this);
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             recyclerView.setAdapter(newsAdapter);
-            recyclerView.setItemAnimator(new DefaultItemAnimator());
-            recyclerView.setNestedScrollingEnabled(true);
+//            recyclerView.setItemAnimator(new DefaultItemAnimator());
+//            recyclerView.setNestedScrollingEnabled(true);
         } else {
             newsAdapter.notifyDataSetChanged();
         }
@@ -90,20 +91,16 @@ public class FootballFragment extends Fragment
 
         NewsResult clickedItem = newsArrayList.get(position);
         String apiUrl = clickedItem.getApiUrl();
+        String thumbnailUrl = clickedItem.getFields().getThumbnail();
 
         if (apiUrl != null) {
             String pageUrl = apiUrl + "?show-fields=byline%2Cbody&api-key=" + getString(R.string.theguardian_api_key);
 
-            NewsPageFragment newsPageFragment = new NewsPageFragment();
-            Bundle args = new Bundle();
-            args.putString(NEWS_PAGE_URL, pageUrl);
-            newsPageFragment.setArguments(args);
-            getFragmentManager().beginTransaction()
-                    .replace(R.id.nav_host_fragment, newsPageFragment)
-                    .commitNow();
+            FootballFragmentDirections.ActionNavFootballToNewsPageFragment action =
+                    FootballFragmentDirections.actionNavFootballToNewsPageFragment();
+            action.setPageUrl(pageUrl);
+            action.setThumbnailUrl(thumbnailUrl);
+            Navigation.findNavController(getView()).navigate(action);
         }
-
-        // Alternatively open the website directly in a browser
-//        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(clickedItem.getWebUrl())));
     }
 }

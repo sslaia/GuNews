@@ -25,14 +25,15 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.blogspot.sslaia.gunews.ui.HeadlinesFragment.NEWS_PAGE_URL;
-
 public class NewsPageFragment extends Fragment {
 
     private PageContent pageContents;
     private TextView infoView, titleView, bylineView, bodyView, noteView;
     private ImageView imageView;
     private Application application;
+    private String pageUrl;
+    private String thumbnailUrl = null;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -51,10 +52,9 @@ public class NewsPageFragment extends Fragment {
 
         final List<PageContent> pageList = new ArrayList<>();
 
-        String pageUrl = null;
-        if (getArguments() != null) {
-            pageUrl = getArguments().getString(NEWS_PAGE_URL);
-        }
+        NewsPageFragmentArgs args = NewsPageFragmentArgs.fromBundle(getArguments());
+        pageUrl = args.getPageUrl();
+        thumbnailUrl = args.getThumbnailUrl();
 
         PageViewModelFactory pageFactory = new PageViewModelFactory(application, pageUrl);
         PageViewModel pageViewModel = ViewModelProviders.of(this, pageFactory).get(PageViewModel.class);
@@ -84,14 +84,12 @@ public class NewsPageFragment extends Fragment {
 
                 noteView.setText(getString(R.string.details_news_notes));
 
-                String imageUrl = pageList.get(0).getFields().getThumbnail();
-                if (imageUrl == null) {
+                if (thumbnailUrl == null) {
                     imageView.setVisibility(View.GONE);
                 } else {
                     Glide.with(NewsPageFragment.this)
-                            .load(imageUrl).centerCrop().into(imageView);
+                            .load(thumbnailUrl).centerCrop().into(imageView);
                 }
-
             }
         });
     }

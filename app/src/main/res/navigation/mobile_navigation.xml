@@ -9,37 +9,72 @@
         android:id="@+id/nav_headlines"
         android:name="com.blogspot.sslaia.gunews.ui.HeadlinesFragment"
         android:label="@string/menu_headlines"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_news" >
+        <action
+            android:id="@+id/headlinesToNewsPageFragment"
+            app:destination="@id/newsPageFragment"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <action
+            android:id="@+id/headlinesToAboutFragment"
+            app:destination="@id/nav_about" />
+        <action
+            android:id="@+id/HeadlinesToShareFragment"
+            app:destination="@id/nav_share" />
+        <action
+            android:id="@+id/headlinesToFeedback"
+            app:destination="@id/nav_feedback" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_society"
         android:name="com.blogspot.sslaia.gunews.ui.SocietyFragment"
         android:label="@string/menu_society"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_news" >
+        <action
+            android:id="@+id/action_nav_society_to_newsPageFragment"
+            app:destination="@id/newsPageFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_technology"
         android:name="com.blogspot.sslaia.gunews.ui.TechnologyFragment"
         android:label="@string/menu_technology"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_news" >
+        <action
+            android:id="@+id/action_nav_technology_to_newsPageFragment"
+            app:destination="@id/newsPageFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_science"
         android:name="com.blogspot.sslaia.gunews.ui.ScienceFragment"
         android:label="@string/menu_science"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_news" >
+        <action
+            android:id="@+id/action_nav_science_to_newsPageFragment"
+            app:destination="@id/newsPageFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_politics"
         android:name="com.blogspot.sslaia.gunews.ui.PoliticsFragment"
         android:label="@string/menu_politics"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_news" >
+        <action
+            android:id="@+id/action_nav_politics_to_newsPageFragment"
+            app:destination="@id/newsPageFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_football"
         android:name="com.blogspot.sslaia.gunews.ui.FootballFragment"
         android:label="@string/menu_football"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_news" >
+        <action
+            android:id="@+id/action_nav_football_to_newsPageFragment"
+            app:destination="@id/newsPageFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_share"
@@ -60,6 +95,15 @@
         android:id="@+id/newsPageFragment"
         android:name="com.blogspot.sslaia.gunews.ui.NewsPageFragment"
         android:label="fragment_news_page"
-        tools:layout="@layout/fragment_news_page" />
+        tools:layout="@layout/fragment_news_page" >
+        <argument
+            android:name="pageUrl"
+            app:argType="string"
+            android:defaultValue="no url" />
+        <argument
+            android:name="thumbnailUrl"
+            app:argType="string"
+            android:defaultValue="no url" />
+    </fragment>
 
 </navigation>

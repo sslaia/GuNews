@@ -9,9 +9,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,7 +29,6 @@ import java.util.List;
 public class HeadlinesFragment extends Fragment
         implements NewsAdapter.OnItemClickListener {
 
-    public static final String NEWS_PAGE_URL = "NEWS_PAGE_URL";
     // Possible query key words:
     // show-fields (separated by commas: headline,byline,shortUrl,thumbnail)
     // section (separated by commas: society,technology,science,football)
@@ -37,7 +36,7 @@ public class HeadlinesFragment extends Fragment
     // page (the page no to be display)
     // from-date (dd/mm/yyyy: from a given date)
     // apiKey (api key)
-    String requestUrl = "https://content.guardianapis.com/search?show-fields=headline%2Cbyline%2CshortUrl%2Cthumbnail&page-size=150&api-key=";
+    String requestUrl = "https://content.guardianapis.com/search?show-fields=headline%2Cbyline%2CshortUrl%2Cthumbnail&page-size=15&api-key=";
     private ArrayList<NewsResult> newsArrayList = new ArrayList<>();
     private Application application;
     private NewsAdapter newsAdapter;
@@ -59,7 +58,7 @@ public class HeadlinesFragment extends Fragment
 
         newsListViewModel = ViewModelProviders.of(this, factory).get(NewsViewModel.class);
         newsListViewModel.init();
-        newsListViewModel.getNewsRepository().observe(this, new Observer<NewsItem>() {
+        newsListViewModel.getNewsRepository().observe(getViewLifecycleOwner(), new Observer<NewsItem>() {
             @Override
             public void onChanged(NewsItem newsItems) {
                 List<NewsResult> newsArticles = newsItems.getResponse().getResults();
@@ -90,26 +89,16 @@ public class HeadlinesFragment extends Fragment
 
         NewsResult clickedItem = newsArrayList.get(position);
         String apiUrl = clickedItem.getApiUrl();
+        String thumbnailUrl = clickedItem.getFields().getThumbnail();
 
         if (apiUrl != null) {
             String pageUrl = apiUrl + "?show-fields=byline%2Cbody&api-key=" + getString(R.string.theguardian_api_key);
 
-            NewsPageFragment newsPageFragment = new NewsPageFragment();
-            Bundle args = new Bundle();
-            args.putString(NEWS_PAGE_URL, pageUrl);
-            newsPageFragment.setArguments(args);
-
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.nav_host_fragment, newsPageFragment);
-            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-            ft.addToBackStack(null);
-            ft.commit();
-//            getFragmentManager().beginTransaction()
-//                    .replace(R.id.nav_host_fragment, newsPageFragment)
-//                    .commitNow();
+            HeadlinesFragmentDirections.HeadlinesToNewsPageFragment action =
+                    HeadlinesFragmentDirections.headlinesToNewsPageFragment();
+            action.setPageUrl(pageUrl);
+            action.setThumbnailUrl(thumbnailUrl);
+            Navigation.findNavController(getView()).navigate(action);
         }
-
-        // Alternatively open the website directly in a browser
-//        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(clickedItem.getWebUrl())));
     }
 }

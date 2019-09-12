@@ -36,7 +36,7 @@ public class HeadlinesFragment extends Fragment
     // page (the page no to be display)
     // from-date (dd/mm/yyyy: from a given date)
     // apiKey (api key)
-    String requestUrl = "https://content.guardianapis.com/search?show-fields=headline%2Cbyline%2CshortUrl%2Cthumbnail&page-size=15&api-key=";
+    String requestUrl = "https://content.guardianapis.com/search?section=world&show-fields=headline%2Cbyline%2CshortUrl%2Cthumbnail&page-size=15&api-key=";
     private ArrayList<NewsResult> newsArrayList = new ArrayList<>();
     private Application application;
     private NewsAdapter newsAdapter;
@@ -76,6 +76,7 @@ public class HeadlinesFragment extends Fragment
             newsAdapter = new NewsAdapter(getActivity(), newsArrayList);
             newsAdapter.setOnItemClickListener(this);
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+            recyclerView.setHasFixedSize(true);
             recyclerView.setAdapter(newsAdapter);
             recyclerView.setItemAnimator(new DefaultItemAnimator());
             recyclerView.setNestedScrollingEnabled(true);

@@ -6,12 +6,12 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-public class NewsViewModelFactory implements ViewModelProvider.Factory {
+public class NewsUrlViewModelFactory implements ViewModelProvider.Factory {
 
     private Application application;
     private String url;
 
-    public NewsViewModelFactory(Application application, String url) {
+    public NewsUrlViewModelFactory(Application application, String url) {
         this.application = application;
         this.url = url;
     }
@@ -19,6 +19,6 @@ public class NewsViewModelFactory implements ViewModelProvider.Factory {
     @NonNull
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-        return (T) new NewsViewModel(application, url);
+        return (T) new NewsUrlViewModel(application, url);
     }
 }

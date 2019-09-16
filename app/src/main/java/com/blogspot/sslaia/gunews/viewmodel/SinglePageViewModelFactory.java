@@ -6,12 +6,12 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-public class PageViewModelFactory implements ViewModelProvider.Factory {
+public class SinglePageViewModelFactory implements ViewModelProvider.Factory {
 
     private Application application;
     private String url;
 
-    public PageViewModelFactory(Application application, String url) {
+    public SinglePageViewModelFactory(Application application, String url) {
         this.application = application;
         this.url = url;
     }
@@ -19,6 +19,6 @@ public class PageViewModelFactory implements ViewModelProvider.Factory {
     @NonNull
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-        return (T) new PageViewModel(application, url);
+        return (T) new SinglePageViewModel(application, url);
     }
 }

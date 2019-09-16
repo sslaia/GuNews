@@ -3,33 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_settings"
-        android:orderInCategory="100"
+        android:orderInCategory="10"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+<!--
     <item android:id="@+id/action_search"
         android:title="@string/action_search"
         android:icon="@drawable/ic_search_white"
         app:showAsAction="ifRoom"
-        app:actionViewClass="android.widget.SearchView" />
-
+        app:actionViewClass="androidx.appcompat.widget.SearchView" />
+-->
     <item
         android:id="@+id/action_share"
         android:icon="@drawable/ic_share_white"
         android:title="@string/action_share"
         app:actionProviderClass="androidx.appcompat.widget.ShareActionProvider"
         app:showAsAction="never" />
-
     <item
         android:id="@+id/action_feedback"
         android:icon="@drawable/ic_feedback_white"
         android:title="@string/action_feedback"
         app:showAsAction="never" />
-
+<!--
     <item
         android:id="@+id/action_about"
-        android:icon="@drawable/ic_about_white"
         android:orderInCategory="11"
-        android:title="@string/action_about"
-        app:showAsAction="never" />
-
+        android:icon="@drawable/ic_menu_about"
+        android:title="@string/action_about" />
+-->
 </menu>

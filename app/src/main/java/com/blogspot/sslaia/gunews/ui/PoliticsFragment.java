@@ -1,10 +1,12 @@
 package com.blogspot.sslaia.gunews.ui;
 
 import android.app.Application;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,14 +14,17 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.blogspot.sslaia.gunews.R;
 import com.blogspot.sslaia.gunews.adapter.NewsAdapter;
-import com.blogspot.sslaia.gunews.viewmodel.NewsViewModel;
-import com.blogspot.sslaia.gunews.viewmodel.NewsViewModelFactory;
+import com.blogspot.sslaia.gunews.viewmodel.NewsListViewModel;
+import com.blogspot.sslaia.gunews.viewmodel.NewsUrlViewModel;
+import com.blogspot.sslaia.gunews.viewmodel.NewsListViewModelFactory;
+import com.blogspot.sslaia.gunews.viewmodel.NewsUrlViewModelFactory;
 import com.blogspot.sslaia.gunews.webmodel.NewsItem;
 import com.blogspot.sslaia.gunews.webmodel.NewsResult;
 
@@ -27,38 +32,49 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PoliticsFragment extends Fragment
-        implements NewsAdapter.OnItemClickListener {
+        implements NewsAdapter.OnItemClickListener,
+        SharedPreferences.OnSharedPreferenceChangeListener {
 
-    // Possible query key words:
-    // show-fields (separated by commas: headline,byline,shortUrl,thumbnail)
-    // section (separated by commas: society,technology,science,football)
-    // page-size (int: the amount of news items per page)
-    // page (the page no to be display)
-    // from-date (dd/mm/yyyy: from a given date)
-    // apiKey (api key)
-    String requestUrl = "https://content.guardianapis.com/search?show-fields=headline%2Cbyline%2CshortUrl%2Cthumbnail&section=politics&page-size=15&api-key=";
     private ArrayList<NewsResult> newsArrayList = new ArrayList<>();
     private Application application;
     private NewsAdapter newsAdapter;
     private RecyclerView recyclerView;
-    private NewsViewModel newsListViewModel;
+    private NewsListViewModel newsListViewModel;
+    private View rootView;
+    private SharedPreferences mPrefs;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_news, container, false);
+        // the if statement here solves the problem of empty view when going back (OnBackPressed)
+        // from other fragment screen
+        // Credit: Cesar Garcia (https://stackoverflow.com/questions/45431311/recyclerview-is-empty-when-back-pressed-from-fragment/45431805#45431805)
+        if (rootView == null) {
+            rootView = inflater.inflate(R.layout.fragment_news, container, false);
+        }
+        return rootView;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        String newsUrl = requestUrl + getString(R.string.theguardian_api_key);
+        PreferenceManager.setDefaultValues(getContext(), R.xml.settings_preferences, false);
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        mPrefs.registerOnSharedPreferenceChangeListener(this);
+        String pageSize = mPrefs.getString(
+                getString(R.string.settings_page_size_key),
+                getString(R.string.settings_page_size_default));
 
-        NewsViewModelFactory factory = new NewsViewModelFactory(application, newsUrl);
+        String query = null;
+        String section = "politics";
+        String showFields = "byline,shortUrl,thumbnail";
+        String apiKey = getString(R.string.theguardian_api_key);
 
-        newsListViewModel = ViewModelProviders.of(this, factory).get(NewsViewModel.class);
+        NewsListViewModelFactory factory = new NewsListViewModelFactory(application, query, section, showFields, pageSize, apiKey);
+
+        newsListViewModel = ViewModelProviders.of(this, factory).get(NewsListViewModel.class);
         newsListViewModel.init();
-        newsListViewModel.getNewsRepository().observe(getViewLifecycleOwner(), new Observer<NewsItem>() {
+        newsListViewModel.getNewsListRepository().observe(getViewLifecycleOwner(), new Observer<NewsItem>() {
             @Override
             public void onChanged(NewsItem newsItems) {
                 List<NewsResult> newsArticles = newsItems.getResponse().getResults();
@@ -91,14 +107,19 @@ public class PoliticsFragment extends Fragment
         String apiUrl = clickedItem.getApiUrl();
         String thumbnailUrl = clickedItem.getFields().getThumbnail();
 
-        if (apiUrl != null) {
-            String pageUrl = apiUrl + "?show-fields=byline%2Cbody&api-key=" + getString(R.string.theguardian_api_key);
-
-            PoliticsFragmentDirections.ActionNavPoliticsToNewsPageFragment action =
-                    PoliticsFragmentDirections.actionNavPoliticsToNewsPageFragment();
-            action.setPageUrl(pageUrl);
+        if (apiUrl == null || apiUrl.isEmpty()) {
+            Toast.makeText(getContext(), "Error in getting the web page address", Toast.LENGTH_SHORT).show();
+        } else {
+            PoliticsFragmentDirections.PoliticsToNewsPage action =
+                    PoliticsFragmentDirections.politicsToNewsPage();
+            action.setPageUrl(apiUrl);
             action.setThumbnailUrl(thumbnailUrl);
             Navigation.findNavController(getView()).navigate(action);
         }
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
+
     }
 }

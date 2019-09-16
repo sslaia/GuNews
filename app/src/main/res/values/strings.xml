@@ -9,23 +9,28 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_headlines">Headlines</string>
-    <string name="menu_society">Society</string>
+    <string name="menu_education">Education</string>
+    <string name="menu_entertainment">Entertainment</string>
     <string name="menu_technology">Technology</string>
-    <string name="menu_science">Science</string>
+    <string name="menu_family">Family</string>
+    <string name="menu_health">Health</string>
     <string name="menu_politics">Politics</string>
     <string name="menu_football">Football</string>
-    <string name="menu_share">Share</string>
-    <string name="menu_feedback">Feedback</string>
+    <string name="menu_hrights">Human rights</string>
+    <string name="menu_italy">Italy</string>
+    <string name="menu_indonesia">Indonesia</string>
+    <string name="menu_uk">UK</string>
     <string name="menu_about">About</string>
 
     <string name="action_about">About</string>
     <string name="action_feedback">Feedback</string>
     <string name="action_search">Search</string>
     <string name="action_share">Share</string>
-    <string name="share_this">Share this text</string>
+    <string name="share_this">Search for GuNews app by Sirus Laia on Google Play Store</string>
     <string name="feedback_mailto" translatable="false">mailto:laia.sirus@gmail.com</string>
-    <string name="feedback_subject">My feedback to achida News app</string>
+    <string name="feedback_subject">My feedback to GuNews app</string>
     <string name="feedback_text">Dear Sir,\n\n</string>
+    <string name="fab_text">GuNews article</string>
 
     <string name="section" translatable="false">section</string>
     <string name="headlines">headlines</string>
@@ -37,7 +42,7 @@
 
     <!-- News details related -->
 
-    <string name="details_news_notes"><b>Note:</b> You may see empty square boxes in this article. They are place holders for news related images. theguardian.com doesn\'t release such images for average app access. Sorry</string>
+    <string name="details_news_notes"><b>Note:</b> You may see empty square boxes in this article. They are place holders for news related images. theguardian.com doesn\'t release such images for average app access. You may also see over-sized headings inside the article. Unfortunately the html parsing doesn\'t solve this issue. Sorry</string>
 
     <!-- About & attribution -->
 
@@ -53,5 +58,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="details_news_page">News single page</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preference settings related -->
+    <string name="settings_page_size_label">Number of news items to be fetched.\nCaution: Higher numbers would slow down the app and incur huge data usage.</string>
+    <string name="settings_page_size_default">20</string>
+    <string name="settings_page_size_key" translatable="false">page-size</string>
 
 </resources>

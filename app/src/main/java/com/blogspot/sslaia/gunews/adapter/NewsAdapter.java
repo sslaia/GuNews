@@ -10,7 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.blogspot.sslaia.gunews.MainActivity;
 import com.blogspot.sslaia.gunews.R;
 import com.blogspot.sslaia.gunews.webmodel.NewsResult;
 import com.bumptech.glide.Glide;
@@ -52,14 +51,18 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
             holder.mSection.setText(section);
         }
 
-        String imageUrl = currentItem.getFields().getThumbnail();
-        if (imageUrl == null) {
-            holder.mImage.setVisibility(View.GONE);
-        } else {
-            Glide.with(mContext)
-                    .load(imageUrl)
-                    .centerCrop()
-                    .into(holder.mImage);
+        try {
+            String imageUrl = currentItem.getFields().getThumbnail();
+            if (imageUrl == null || imageUrl.isEmpty()) {
+                holder.mImage.setVisibility(View.GONE);
+            } else {
+                Glide.with(mContext)
+                        .load(imageUrl)
+                        .centerCrop()
+                        .into(holder.mImage);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

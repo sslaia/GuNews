@@ -22,16 +22,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.blogspot.sslaia.gunews.R;
 import com.blogspot.sslaia.gunews.adapter.NewsAdapter;
 import com.blogspot.sslaia.gunews.viewmodel.NewsListViewModel;
-import com.blogspot.sslaia.gunews.viewmodel.NewsUrlViewModel;
 import com.blogspot.sslaia.gunews.viewmodel.NewsListViewModelFactory;
-import com.blogspot.sslaia.gunews.viewmodel.NewsUrlViewModelFactory;
 import com.blogspot.sslaia.gunews.webmodel.NewsItem;
 import com.blogspot.sslaia.gunews.webmodel.NewsResult;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TechnologyFragment extends Fragment
+public class ItalyFragment extends Fragment
         implements NewsAdapter.OnItemClickListener,
         SharedPreferences.OnSharedPreferenceChangeListener {
 
@@ -65,8 +63,8 @@ public class TechnologyFragment extends Fragment
                 getString(R.string.settings_page_size_key),
                 getString(R.string.settings_page_size_default));
 
-        String query = null;
-        String section = "technology";
+        String query = "italy";
+        String section = null;
         String showFields = "byline,shortUrl,thumbnail";
         String apiKey = getString(R.string.theguardian_api_key);
 
@@ -110,8 +108,8 @@ public class TechnologyFragment extends Fragment
         if (apiUrl == null || apiUrl.isEmpty()) {
             Toast.makeText(getContext(), "Error in getting the web page address", Toast.LENGTH_SHORT).show();
         } else {
-            TechnologyFragmentDirections.TechnologyToNewsPage action =
-                    TechnologyFragmentDirections.technologyToNewsPage();
+            ItalyFragmentDirections.ItalyToNewsPage action =
+                    ItalyFragmentDirections.italyToNewsPage();
             action.setPageUrl(apiUrl);
             action.setThumbnailUrl(thumbnailUrl);
             Navigation.findNavController(getView()).navigate(action);

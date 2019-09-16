@@ -6,16 +6,18 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.blogspot.sslaia.gunews.networking.NewsRepository;
+import com.blogspot.sslaia.gunews.repository.NewsUrlRepository;
+import com.blogspot.sslaia.gunews.repository.SinglePageRepository;
 import com.blogspot.sslaia.gunews.webmodel.PageItem;
 
-public class PageViewModel extends ViewModel {
+public class SinglePageViewModel extends ViewModel {
+
     private MutableLiveData<PageItem> newsLiveData;
-    private NewsRepository newsRepository;
+    private SinglePageRepository singlePageRepository;
     private Application application;
     private String url;
 
-    public PageViewModel(Application application, String url) {
+    public SinglePageViewModel(Application application, String url) {
         this.application = application;
         this.url = url;
         init();
@@ -25,11 +27,11 @@ public class PageViewModel extends ViewModel {
         if (newsLiveData != null) {
             return;
         }
-        newsRepository = NewsRepository.getInstance();
-        newsLiveData = newsRepository.getPage(url);
+        singlePageRepository = SinglePageRepository.getInstance();
+        newsLiveData = singlePageRepository.getSinglePage(url);
     }
 
-    public LiveData<PageItem> getNewsRepository() {
+    public LiveData<PageItem> getSinglePageRepository() {
         return newsLiveData;
     }
 }

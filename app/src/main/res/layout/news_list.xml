@@ -6,7 +6,10 @@
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
     android:elevation="16dp"
-    android:orientation="vertical">
+    android:foreground="?selectableItemBackground"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:focusable="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

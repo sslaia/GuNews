@@ -13,7 +13,7 @@
     <string name="menu_education">Education</string>
     <string name="menu_family">Family</string>
     <string name="menu_hrights">Human rights</string>
-    <string name="menu_opinion">Opnion</string>
+    <string name="menu_opinion">Opinion</string>
     <string name="menu_politics">Politics</string>
     <string name="menu_sport">Sport</string>
     <string name="menu_technology">Technology</string>
@@ -47,8 +47,8 @@
 
     <string name="about_the_app">About GuNews</string>
     <string name="about_me_header">About Me</string>
-    <string name="about_me">Quite late to late to coding, but I have been always interested in IT.\n\nSo when I hadn\'t started my official Android programming course yet, I was running a project I called the Nias Keyboard Project. Basically coding for Android before learning how to code :)\n\nI have a few apps ideas so I\'m looking forward to learning enough and starting real work!\n\nBTW the recently accomplished Udacity\'s nanodegree program in Android Basics is only the beginning.\n\nPlease don\'t hesitate to giving me feedback. Just reach out by clicking on this floating action bar or by sending feedback in the app Settings.</string>
-    <string name="attribution"><b>News source</b>: theguardian.com, one of the few trusted news sources nowadays. <i>So guaranteed no fake</i>.\n\n<b>Code source</b>: The app was based on the example app by Amit Kumar Tiwari (https://github.com/Amit00a/MVVMNews). Some particular solutions are from stockoverflow.com and codinginflow.com.\n\n<b>Special thank you</b>: to <b>codinginflow.com</b> that provides some of the best tutorials out there. His tutorials are concise but without missing the most important bits for beginners, that is not always the case with other tutorials.</string>
+    <string name="about_me">Quite late to late to coding, but I have been always interested in IT.\n\nSo when I hadn\'t started my official Android programming course yet, I was running a project I called the Nias Keyboard Project. Basically coding for Android before learning how to code :)\n\nI have a few apps ideas so I\'m looking forward to learning enough and starting real work!\n\nBTW the Udacity\'s nanodegree program in Android Basics I accomplished in July 2019 is only the beginning.\n\nPlease don\'t hesitate to giving me feedback. Just reach out by clicking on this floating action bar or by sending feedback in the app Settings.</string>
+    <string name="attribution"><b>News source</b>: theguardian.com, one of the few trusted news sources nowadays. <i>So guaranteed no fake</i>.\n\n<b>Code source</b>: The app was based on the example app by Amit Kumar Tiwari (https://github.com/Amit00a/MVVMNews). Some particular solutions are from stockoverflow.com and codinginflow.com.\n\n<b>Special thank you</b>: to codinginflow.com that provides some of the best tutorials out there. His tutorials are concise but without missing the most important bits for beginners, that is not always the case with other tutorials.</string>
 
     <!-- Others -->
 

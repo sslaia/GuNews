@@ -3,6 +3,7 @@ package com.blogspot.sslaia.gunews.ui;
 import android.app.Application;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -64,6 +65,13 @@ public class HeadlinesFragment extends Fragment
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        if (getArguments() != null || !getArguments().isEmpty()) {
+            HeadlinesFragmentArgs args = HeadlinesFragmentArgs.fromBundle(getArguments());
+            query = args.getSearchWord();
+        } else {
+            query = null;
+        }
 
         PreferenceManager.setDefaultValues(getContext(), R.xml.settings_preferences, false);
         mPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());

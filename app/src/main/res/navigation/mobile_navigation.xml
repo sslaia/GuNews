@@ -15,13 +15,13 @@
             app:enterAnim="@anim/slide_in_left"
             app:destination="@id/nav_news_page" />
         <action
-            android:id="@+id/headlines_to_about"
-            app:enterAnim="@anim/slide_in_left"
-            app:destination="@id/nav_about" />
-        <action
             android:id="@+id/headlines_to_search"
             app:destination="@id/nav_search_results"
             app:enterAnim="@anim/slide_in_left" />
+        <argument
+            android:name="searchWord"
+            android:defaultValue="no query"
+            app:argType="string" />
     </fragment>
 
     <fragment
@@ -30,13 +30,13 @@
         android:label="@string/menu_culture"
         tools:layout="@layout/fragment_news">
         <action
+            android:id="@+id/culture_to_headlines"
+            app:destination="@id/nav_headlines"
+            app:enterAnim="@anim/slide_in_left" />
+        <action
             android:id="@+id/culture_to_news_page"
             app:destination="@id/nav_news_page"
             app:enterAnim="@anim/slide_in_left" />
-        <action
-            android:id="@+id/culture_to_about"
-            app:enterAnim="@anim/slide_in_left"
-            app:destination="@id/nav_about" />
     </fragment>
 
     <fragment
@@ -45,13 +45,13 @@
         android:label="@string/menu_education"
         tools:layout="@layout/fragment_news">
         <action
+            android:id="@+id/education_to_headlines"
+            app:destination="@id/nav_headlines"
+            app:enterAnim="@anim/slide_in_left" />
+        <action
             android:id="@+id/education_to_news_page"
             app:destination="@id/nav_news_page"
             app:enterAnim="@anim/slide_in_left" />
-        <action
-            android:id="@+id/education_to_about"
-            app:enterAnim="@anim/slide_in_left"
-            app:destination="@id/nav_about" />
     </fragment>
 
     <fragment
@@ -60,13 +60,13 @@
         android:label="@string/menu_family"
         tools:layout="@layout/fragment_news">
         <action
+            android:id="@+id/family_to_headlines"
+            app:destination="@id/nav_headlines"
+            app:enterAnim="@anim/slide_in_left" />
+        <action
             android:id="@+id/family_to_news_page"
             app:destination="@id/nav_news_page"
             app:enterAnim="@anim/slide_in_left" />
-        <action
-            android:id="@+id/family_to_about"
-            app:enterAnim="@anim/slide_in_left"
-            app:destination="@id/nav_about" />
     </fragment>
 
     <fragment
@@ -75,13 +75,13 @@
         android:label="@string/menu_hrights"
         tools:layout="@layout/fragment_news" >
         <action
+            android:id="@+id/hrights_to_headlines"
+            app:destination="@id/nav_headlines"
+            app:enterAnim="@anim/slide_in_left" />
+        <action
             android:id="@+id/hrights_to_news_page"
             app:destination="@id/nav_news_page"
             app:enterAnim="@anim/slide_in_left" />
-        <action
-            android:id="@+id/hrights_to_about"
-            app:enterAnim="@anim/slide_in_left"
-            app:destination="@id/nav_about" />
     </fragment>
 
     <fragment
@@ -90,13 +90,13 @@
         android:label="@string/menu_opinion"
         tools:layout="@layout/fragment_news">
         <action
+            android:id="@+id/opinion_to_headlines"
+            app:destination="@id/nav_headlines"
+            app:enterAnim="@anim/slide_in_left" />
+        <action
             android:id="@+id/opinion_to_news_page"
             app:destination="@id/nav_news_page"
             app:enterAnim="@anim/slide_in_left" />
-        <action
-            android:id="@+id/opinion_to_about"
-            app:enterAnim="@anim/slide_in_left"
-            app:destination="@id/nav_about" />
     </fragment>
 
     <fragment
@@ -105,13 +105,13 @@
         android:label="@string/menu_politics"
         tools:layout="@layout/fragment_news">
         <action
+            android:id="@+id/politics_to_headlines"
+            app:destination="@id/nav_headlines"
+            app:enterAnim="@anim/slide_in_left" />
+        <action
             android:id="@+id/politics_to_news_page"
             app:destination="@id/nav_news_page"
             app:enterAnim="@anim/slide_in_left" />
-        <action
-            android:id="@+id/politics_to_about"
-            app:enterAnim="@anim/slide_in_left"
-            app:destination="@id/nav_about" />
     </fragment>
 
     <fragment
@@ -120,13 +120,13 @@
         android:label="@string/menu_sport"
         tools:layout="@layout/fragment_news" >
         <action
+            android:id="@+id/sport_to_headlines"
+            app:destination="@id/nav_headlines"
+            app:enterAnim="@anim/slide_in_left" />
+        <action
             android:id="@+id/sport_to_news_page"
             app:destination="@id/nav_news_page"
             app:enterAnim="@anim/slide_in_left" />
-        <action
-            android:id="@+id/sport_to_about"
-            app:enterAnim="@anim/slide_in_left"
-            app:destination="@id/nav_about" />
     </fragment>
 
     <fragment
@@ -135,13 +135,13 @@
         android:label="@string/menu_technology"
         tools:layout="@layout/fragment_news">
         <action
+            android:id="@+id/technology_to_headlines"
+            app:destination="@id/nav_headlines"
+            app:enterAnim="@anim/slide_in_left" />
+        <action
             android:id="@+id/technology_to_news_page"
             app:destination="@id/nav_news_page"
             app:enterAnim="@anim/slide_in_left" />
-        <action
-            android:id="@+id/technology_to_about"
-            app:enterAnim="@anim/slide_in_left"
-            app:destination="@id/nav_about" />
     </fragment>
 
     <fragment
@@ -150,13 +150,13 @@
         android:label="@string/menu_wellbeing"
         tools:layout="@layout/fragment_news">
         <action
+            android:id="@+id/wellbeing_to_headlines"
+            app:destination="@id/nav_headlines"
+            app:enterAnim="@anim/slide_in_left" />
+        <action
             android:id="@+id/wellbeing_to_news_page"
             app:destination="@id/nav_news_page"
             app:enterAnim="@anim/slide_in_left" />
-        <action
-            android:id="@+id/wellbeing_to_about"
-            app:enterAnim="@anim/slide_in_left"
-            app:destination="@id/nav_about" />
     </fragment>
 
     <fragment
@@ -192,6 +192,10 @@
         <action
             android:id="@+id/search_results_to_news_page"
             app:destination="@id/nav_news_page"
+            app:enterAnim="@anim/slide_in_left" />
+        <action
+            android:id="@+id/search_results_to_headlines"
+            app:destination="@id/nav_headlines"
             app:enterAnim="@anim/slide_in_left" />
     </fragment>
 

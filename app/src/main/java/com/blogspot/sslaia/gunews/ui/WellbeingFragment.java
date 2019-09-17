@@ -29,7 +29,7 @@ import com.blogspot.sslaia.gunews.webmodel.NewsResult;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EntertainmentFragment extends Fragment
+public class WellbeingFragment extends Fragment
         implements NewsAdapter.OnItemClickListener,
         SharedPreferences.OnSharedPreferenceChangeListener {
 
@@ -63,7 +63,7 @@ public class EntertainmentFragment extends Fragment
                 getString(R.string.settings_page_size_key),
                 getString(R.string.settings_page_size_default));
 
-        String query = "entertainment";
+        String query = "health wellbeing lifestyle environment food";
         String section = null;
         String showFields = "byline,shortUrl,thumbnail";
         String apiKey = getString(R.string.theguardian_api_key);
@@ -108,8 +108,8 @@ public class EntertainmentFragment extends Fragment
         if (apiUrl == null || apiUrl.isEmpty()) {
             Toast.makeText(getContext(), "Error in getting the web page address", Toast.LENGTH_SHORT).show();
         } else {
-            EntertainmentFragmentDirections.EntertainmentToNewsPage action =
-                    EntertainmentFragmentDirections.entertainmentToNewsPage();
+            WellbeingFragmentDirections.WellbeingToNewsPage action =
+                    WellbeingFragmentDirections.wellbeingToNewsPage();
             action.setPageUrl(apiUrl);
             action.setThumbnailUrl(thumbnailUrl);
             Navigation.findNavController(getView()).navigate(action);

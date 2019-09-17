@@ -9,52 +9,44 @@
             android:icon="@drawable/ic_menu_headlines"
             android:title="@string/menu_headlines" />
         <item
+            android:id="@+id/nav_culture"
+            android:icon="@drawable/ic_menu_culture"
+            android:title="@string/menu_culture" />
+        <item
             android:id="@+id/nav_education"
             android:icon="@drawable/ic_menu_education"
             android:title="@string/menu_education" />
-        <item
-            android:id="@+id/nav_entertainment"
-            android:icon="@drawable/ic_menu_entertainment"
-            android:title="@string/menu_entertainment" />
         <item
             android:id="@+id/nav_family"
             android:icon="@drawable/ic_menu_family"
             android:title="@string/menu_family" />
         <item
-            android:id="@+id/nav_football"
-            android:icon="@drawable/ic_menu_football"
-            android:title="@string/menu_football" />
-        <item
-            android:id="@+id/nav_health"
-            android:icon="@drawable/ic_menu_health"
-            android:title="@string/menu_health" />
-        <item
             android:id="@+id/nav_hrights"
             android:icon="@drawable/ic_menu_hrights"
             android:title="@string/menu_hrights" />
         <item
-            android:id="@+id/nav_indonesia"
-            android:icon="@drawable/ic_menu_indonesia"
-            android:title="@string/menu_indonesia" />
-        <item
-            android:id="@+id/nav_italy"
-            android:icon="@drawable/ic_menu_italy"
-            android:title="@string/menu_italy" />
+            android:id="@+id/nav_opinion"
+            android:icon="@drawable/ic_menu_opinion"
+            android:title="@string/menu_opinion" />
         <item
             android:id="@+id/nav_politics"
             android:icon="@drawable/ic_menu_politics"
             android:title="@string/menu_politics" />
         <item
+            android:id="@+id/nav_sport"
+            android:icon="@drawable/ic_menu_sport"
+            android:title="@string/menu_sport" />
+        <item
             android:id="@+id/nav_technology"
             android:icon="@drawable/ic_menu_technology"
             android:title="@string/menu_technology" />
         <item
-            android:id="@+id/nav_uk"
-            android:icon="@drawable/ic_menu_uk"
-            android:title="@string/menu_uk" />
+            android:id="@+id/nav_wellbeing"
+            android:icon="@drawable/ic_menu_wellbeing"
+            android:title="@string/menu_wellbeing" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Attribution">
         <menu>
             <item
                 android:id="@+id/nav_about"

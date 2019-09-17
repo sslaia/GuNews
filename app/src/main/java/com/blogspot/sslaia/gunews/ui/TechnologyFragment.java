@@ -65,8 +65,8 @@ public class TechnologyFragment extends Fragment
                 getString(R.string.settings_page_size_key),
                 getString(R.string.settings_page_size_default));
 
-        String query = null;
-        String section = "technology";
+        String query = "technology science android";
+        String section = null;
         String showFields = "byline,shortUrl,thumbnail";
         String apiKey = getString(R.string.theguardian_api_key);
 

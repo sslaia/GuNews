@@ -28,6 +28,8 @@
                 android:id="@+id/attribution"
                 style="@style/AboutBodyStyle"
                 android:text="@string/attribution"
+                android:linksClickable="true"
+                android:autoLink="web"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/about_the_app" />

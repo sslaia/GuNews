@@ -25,6 +25,21 @@
     </fragment>
 
     <fragment
+        android:id="@+id/nav_culture"
+        android:name="com.blogspot.sslaia.gunews.ui.CultureFragment"
+        android:label="@string/menu_culture"
+        tools:layout="@layout/fragment_news">
+        <action
+            android:id="@+id/culture_to_news_page"
+            app:destination="@id/nav_news_page"
+            app:enterAnim="@anim/slide_in_left" />
+        <action
+            android:id="@+id/culture_to_about"
+            app:enterAnim="@anim/slide_in_left"
+            app:destination="@id/nav_about" />
+    </fragment>
+
+    <fragment
         android:id="@+id/nav_education"
         android:name="com.blogspot.sslaia.gunews.ui.EducationFragment"
         android:label="@string/menu_education"
@@ -35,21 +50,6 @@
             app:enterAnim="@anim/slide_in_left" />
         <action
             android:id="@+id/education_to_about"
-            app:enterAnim="@anim/slide_in_left"
-            app:destination="@id/nav_about" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/nav_entertainment"
-        android:name="com.blogspot.sslaia.gunews.ui.EntertainmentFragment"
-        android:label="@string/menu_entertainment"
-        tools:layout="@layout/fragment_news">
-        <action
-            android:id="@+id/entertainment_to_news_page"
-            app:destination="@id/nav_news_page"
-            app:enterAnim="@anim/slide_in_left" />
-        <action
-            android:id="@+id/entertainment_to_about"
             app:enterAnim="@anim/slide_in_left"
             app:destination="@id/nav_about" />
     </fragment>
@@ -70,36 +70,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/nav_football"
-        android:name="com.blogspot.sslaia.gunews.ui.FootballFragment"
-        android:label="@string/menu_football"
-        tools:layout="@layout/fragment_news">
-        <action
-            android:id="@+id/football_to_news_page"
-            app:destination="@id/nav_news_page"
-            app:enterAnim="@anim/slide_in_left" />
-        <action
-            android:id="@+id/football_to_about"
-            app:enterAnim="@anim/slide_in_left"
-            app:destination="@id/nav_about" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/nav_health"
-        android:name="com.blogspot.sslaia.gunews.ui.HealthFragment"
-        android:label="@string/menu_health"
-        tools:layout="@layout/fragment_news">
-        <action
-            android:id="@+id/health_to_news_page"
-            app:destination="@id/nav_news_page"
-            app:enterAnim="@anim/slide_in_left" />
-        <action
-            android:id="@+id/health_to_about"
-            app:enterAnim="@anim/slide_in_left"
-            app:destination="@id/nav_about" />
-    </fragment>
-
-    <fragment
         android:id="@+id/nav_hrights"
         android:name="com.blogspot.sslaia.gunews.ui.HrightsFragment"
         android:label="@string/menu_hrights"
@@ -115,31 +85,16 @@
     </fragment>
 
     <fragment
-        android:id="@+id/nav_indonesia"
-        android:name="com.blogspot.sslaia.gunews.ui.IndonesiaFragment"
-        android:label="@string/menu_indonesia"
-        tools:layout="@layout/fragment_news" >
+        android:id="@+id/nav_opinion"
+        android:name="com.blogspot.sslaia.gunews.ui.OpinionFragment"
+        android:label="@string/menu_opinion"
+        tools:layout="@layout/fragment_news">
         <action
-            android:id="@+id/indonesia_to_news_page"
+            android:id="@+id/opinion_to_news_page"
             app:destination="@id/nav_news_page"
             app:enterAnim="@anim/slide_in_left" />
         <action
-            android:id="@+id/indonesia_to_about"
-            app:enterAnim="@anim/slide_in_left"
-            app:destination="@id/nav_about" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/nav_italy"
-        android:name="com.blogspot.sslaia.gunews.ui.ItalyFragment"
-        android:label="@string/menu_italy"
-        tools:layout="@layout/fragment_news" >
-        <action
-            android:id="@+id/italy_to_news_page"
-            app:destination="@id/nav_news_page"
-            app:enterAnim="@anim/slide_in_left" />
-        <action
-            android:id="@+id/italy_to_about"
+            android:id="@+id/opinion_to_about"
             app:enterAnim="@anim/slide_in_left"
             app:destination="@id/nav_about" />
     </fragment>
@@ -160,6 +115,21 @@
     </fragment>
 
     <fragment
+        android:id="@+id/nav_sport"
+        android:name="com.blogspot.sslaia.gunews.ui.SportFragment"
+        android:label="@string/menu_sport"
+        tools:layout="@layout/fragment_news" >
+        <action
+            android:id="@+id/sport_to_news_page"
+            app:destination="@id/nav_news_page"
+            app:enterAnim="@anim/slide_in_left" />
+        <action
+            android:id="@+id/sport_to_about"
+            app:enterAnim="@anim/slide_in_left"
+            app:destination="@id/nav_about" />
+    </fragment>
+
+    <fragment
         android:id="@+id/nav_technology"
         android:name="com.blogspot.sslaia.gunews.ui.TechnologyFragment"
         android:label="@string/menu_technology"
@@ -175,16 +145,16 @@
     </fragment>
 
     <fragment
-        android:id="@+id/nav_uk"
-        android:name="com.blogspot.sslaia.gunews.ui.UKFragment"
-        android:label="@string/menu_uk"
+        android:id="@+id/nav_wellbeing"
+        android:name="com.blogspot.sslaia.gunews.ui.WellbeingFragment"
+        android:label="@string/menu_wellbeing"
         tools:layout="@layout/fragment_news">
         <action
-            android:id="@+id/uk_to_news_page"
+            android:id="@+id/wellbeing_to_news_page"
             app:destination="@id/nav_news_page"
             app:enterAnim="@anim/slide_in_left" />
         <action
-            android:id="@+id/uk_to_about"
+            android:id="@+id/wellbeing_to_about"
             app:enterAnim="@anim/slide_in_left"
             app:destination="@id/nav_about" />
     </fragment>
@@ -209,6 +179,7 @@
             android:defaultValue="no url"
             app:argType="string" />
     </fragment>
+
     <fragment
         android:id="@+id/nav_search_results"
         android:name="com.blogspot.sslaia.gunews.ui.SearchResultsFragment"

@@ -100,18 +100,17 @@ public class MainActivity extends AppCompatActivity {
                 Intent menuShare = new Intent(Intent.ACTION_SEND);
                 menuShare.setType("text/plain");
                 menuShare.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
-                menuShare.putExtra(Intent.EXTRA_TEXT, getString(R.string.app_tag_line));
+                menuShare.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_text));
                 if (menuShare.resolveActivity(getPackageManager()) != null) {
-                    startActivity(Intent.createChooser(menuShare, getString(R.string.share_this)));
+                    startActivity(menuShare);
                 }
                 return true;
             case R.id.action_feedback:
                 Intent menuFeedback = new Intent(Intent.ACTION_SENDTO);
                 menuFeedback.setData(Uri.parse(getString(R.string.feedback_mailto)));
                 menuFeedback.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.feedback_subject));
-                menuFeedback.putExtra(Intent.EXTRA_TEXT, getString(R.string.feedback_text));
                 if (menuFeedback.resolveActivity(getPackageManager()) != null) {
-                    startActivity(Intent.createChooser(menuFeedback, getString(R.string.share_this)));
+                    startActivity(menuFeedback);
                 }
                 return true;
             default:

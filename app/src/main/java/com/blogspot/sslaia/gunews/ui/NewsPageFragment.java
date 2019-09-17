@@ -32,7 +32,6 @@ public class NewsPageFragment extends Fragment {
     private TextView infoView, titleView, bylineView, bodyView, noteView;
     private ImageView imageView;
     private Application application;
-    private String shareUrl;
     private String shortUrl;
     private String pageUrl;
     private String requestUrl;
@@ -76,7 +75,6 @@ public class NewsPageFragment extends Fragment {
 
                 headline = pageList.get(0).getFields().getHeadline();
                 shortUrl = pageList.get(0).getFields().getShortUrl();
-                shareUrl = "Open in a web browser: " + shortUrl;
                 titleView.setText(headline);
 
                 String date = pageList.get(0).getWebPublicationDate().substring(0, 10);
@@ -125,9 +123,9 @@ public class NewsPageFragment extends Fragment {
                 Intent shareArticle = new Intent(Intent.ACTION_SEND);
                 shareArticle.setType("text/plain");
                 shareArticle.putExtra(Intent.EXTRA_SUBJECT, headline);
-                shareArticle.putExtra(Intent.EXTRA_TEXT, shareUrl);
+                shareArticle.putExtra(Intent.EXTRA_TEXT, getString(R.string.open_in_browser) + shortUrl + "\n\n" + getString(R.string.app_name) + getString(R.string.app_tag_line));
                 if (shareArticle.resolveActivity(getActivity().getPackageManager()) != null) {
-                    startActivity(Intent.createChooser(shareArticle, getString(R.string.share_this)));
+                    startActivity(shareArticle);
                 }
             }
         });

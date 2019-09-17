@@ -97,7 +97,6 @@ public class HeadlinesFragment extends Fragment
             }
         });
 
-        recyclerView = getActivity().findViewById(R.id.recycler_view);
         setupRecyclerView();
     }
 
@@ -105,6 +104,8 @@ public class HeadlinesFragment extends Fragment
         if (newsAdapter == null) {
             newsAdapter = new NewsAdapter(getActivity(), newsList);
             newsAdapter.setOnItemClickListener(this);
+
+            recyclerView = getView().findViewById(R.id.recycler_view);
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             recyclerView.setHasFixedSize(true);
             recyclerView.setAdapter(newsAdapter);

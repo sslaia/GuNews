@@ -26,10 +26,10 @@
     <string name="action_feedback">Feedback</string>
     <string name="action_search">Search</string>
     <string name="action_share">Share</string>
-    <string name="share_this">Search for GuNews app by Sirus Laia on Google Play Store</string>
+    <string name="share_text">Search for GuNews app by Sirus Laia on Google Play Store\n\nGuNews. Powered by theguardian.com</string>
     <string name="feedback_mailto" translatable="false">mailto:laia.sirus@gmail.com</string>
     <string name="feedback_subject">My feedback to GuNews app</string>
-    <string name="feedback_text">Dear Sir,\n\n</string>
+    <string name="open_in_browser">Open in a web browser: \n\n</string>
     <string name="fab_text">GuNews article</string>
 
     <string name="section" translatable="false">section</string>

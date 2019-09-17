@@ -6,13 +6,6 @@
         android:orderInCategory="10"
         android:title="@string/action_settings"
         app:showAsAction="never" />
-<!--
-    <item android:id="@+id/action_search"
-        android:title="@string/action_search"
-        android:icon="@drawable/ic_search_white"
-        app:showAsAction="ifRoom"
-        app:actionViewClass="androidx.appcompat.widget.SearchView" />
--->
     <item
         android:id="@+id/action_share"
         android:icon="@drawable/ic_share_white"

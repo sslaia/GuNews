@@ -1,12 +1,8 @@
 package com.blogspot.sslaia.gunews.ui;
 
 import android.app.Application;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,7 +16,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
@@ -77,7 +72,7 @@ public class HeadlinesFragment extends Fragment
                 getString(R.string.settings_page_size_key),
                 getString(R.string.settings_page_size_default));
 
-        String section = "world";
+        String section = null;
         String showFields = "byline,shortUrl,thumbnail";
         String apiKey = getString(R.string.theguardian_api_key);
 

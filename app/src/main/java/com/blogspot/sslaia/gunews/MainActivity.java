@@ -3,6 +3,7 @@ package com.blogspot.sslaia.gunews;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.inputmethod.EditorInfo;
@@ -23,6 +24,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.blogspot.sslaia.gunews.ui.AboutFragment;
 import com.blogspot.sslaia.gunews.ui.HeadlinesFragmentDirections;
+import com.blogspot.sslaia.gunews.ui.SearchResultsFragment;
 import com.blogspot.sslaia.gunews.ui.SettingsActivity;
 import com.google.android.material.navigation.NavigationView;
 
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 R.id.nav_headlines, R.id.nav_education, R.id.nav_entertainment,
                 R.id.nav_family, R.id.nav_football, R.id.nav_health, R.id.nav_hrights,
                 R.id.nav_indonesia, R.id.nav_italy, R.id.nav_politics,
-                R.id.nav_technology, R.id.nav_uk,R.id.nav_about)
+                R.id.nav_technology, R.id.nav_uk,R.id.nav_about,R.id.nav_search_results)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -65,10 +67,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.main, menu);
 //
 //        // Use SearchView to get search words (adopted from Codinginflow.com's solution)
+//        // But to make the results to be send to a fragment from Google's Android developers
+//        // by adding the adapted method navigateToSearchResults()
 //        MenuItem searchItem = menu.findItem(R.id.action_search);
 //        SearchView searchView = (SearchView) searchItem.getActionView();
 //
@@ -77,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
 //
 //            @Override
 //            public boolean onQueryTextSubmit(String query) {
+//                navigateToSearchResults(query);
 //                return false;
 //            }
 //
@@ -117,5 +122,17 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+//    public void navigateToSearchResults(String query) {
+//        Fragment fragment = new SearchResultsFragment();
+//        Bundle args = new Bundle();
+//        args.putString("searchQuery", query);
+//        fragment.setArguments(args);
+//
+//        getSupportFragmentManager().beginTransaction()
+//                .replace(R.id.nav_host_fragment, fragment, "SearchResultsFragment")
+//                .addToBackStack("SearchResultsFragment")
+//                .commit();
+//    }
 
 }

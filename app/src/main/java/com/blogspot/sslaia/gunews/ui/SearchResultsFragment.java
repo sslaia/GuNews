@@ -1,26 +1,17 @@
 package com.blogspot.sslaia.gunews.ui;
 
 import android.app.Application;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
@@ -39,7 +30,7 @@ import com.blogspot.sslaia.gunews.webmodel.NewsResult;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HeadlinesFragment extends Fragment
+public class SearchResultsFragment extends Fragment
         implements NewsAdapter.OnItemClickListener,
         SharedPreferences.OnSharedPreferenceChangeListener {
 
@@ -50,16 +41,14 @@ public class HeadlinesFragment extends Fragment
     private NewsListViewModel newsListViewModel;
     private View rootView;
     private SharedPreferences mPrefs;
-    private String query = null;
+    private String query;
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
-    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        // the if statement here solves the problem of empty view when going back (OnBackPressed)
+        // from other fragment screen
+        // Credit: Cesar Garcia (https://stackoverflow.com/questions/45431311/recyclerview-is-empty-when-back-pressed-from-fragment/45431805#45431805)
         if (rootView == null) {
             rootView = inflater.inflate(R.layout.fragment_news, container, false);
         }
@@ -70,6 +59,9 @@ public class HeadlinesFragment extends Fragment
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        SearchResultsFragmentArgs args = SearchResultsFragmentArgs.fromBundle(getArguments());
+        query = args.getSearchQuery();
+
         PreferenceManager.setDefaultValues(getContext(), R.xml.settings_preferences, false);
         mPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         mPrefs.registerOnSharedPreferenceChangeListener(this);
@@ -77,26 +69,24 @@ public class HeadlinesFragment extends Fragment
                 getString(R.string.settings_page_size_key),
                 getString(R.string.settings_page_size_default));
 
-        String section = "world";
+        String section = null;
         String showFields = "byline,shortUrl,thumbnail";
         String apiKey = getString(R.string.theguardian_api_key);
 
         NewsListViewModelFactory factory = new NewsListViewModelFactory(application, query, section, showFields, pageSize, apiKey);
 
         newsListViewModel = ViewModelProviders.of(this, factory).get(NewsListViewModel.class);
-        // This line makes sure the viewmodel is only run once
         newsListViewModel.init();
-        // instead of this (Fragment) getViewLifeCycleOwner is called to prevent multiple instances
-        // of observer are run
         newsListViewModel.getNewsListRepository().observe(getViewLifecycleOwner(), new Observer<NewsItem>() {
             @Override
             public void onChanged(NewsItem newsItems) {
-                List<NewsResult> articleList = newsItems.getResponse().getResults();
-                newsList.addAll(articleList);
+                List<NewsResult> newsArticles = newsItems.getResponse().getResults();
+                newsList.addAll(newsArticles);
                 newsAdapter.notifyDataSetChanged();
             }
         });
 
+        recyclerView = getView().findViewById(R.id.recycler_view);
         setupRecyclerView();
     }
 
@@ -104,10 +94,7 @@ public class HeadlinesFragment extends Fragment
         if (newsAdapter == null) {
             newsAdapter = new NewsAdapter(getActivity(), newsList);
             newsAdapter.setOnItemClickListener(this);
-
-            recyclerView = getView().findViewById(R.id.recycler_view);
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-            recyclerView.setHasFixedSize(true);
             recyclerView.setAdapter(newsAdapter);
             recyclerView.setItemAnimator(new DefaultItemAnimator());
             recyclerView.setNestedScrollingEnabled(true);
@@ -126,53 +113,16 @@ public class HeadlinesFragment extends Fragment
         if (apiUrl == null || apiUrl.isEmpty()) {
             Toast.makeText(getContext(), "Error in getting the web page address", Toast.LENGTH_SHORT).show();
         } else {
-            HeadlinesFragmentDirections.HeadlinesToNewsPage action =
-                    HeadlinesFragmentDirections.headlinesToNewsPage();
+            SearchResultsFragmentDirections.SearchResultsToNewsPage action =
+                    SearchResultsFragmentDirections.searchResultsToNewsPage();
             action.setPageUrl(apiUrl);
             action.setThumbnailUrl(thumbnailUrl);
             Navigation.findNavController(getView()).navigate(action);
         }
     }
 
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        inflater.inflate(R.menu.menu_fragment, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-
-        MenuItem searchItem = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) searchItem.getActionView();
-
-        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-
-            @Override
-            public boolean onQueryTextSubmit(String searchQuery) {
-                navigateToSearchResults(searchQuery);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        return super.onOptionsItemSelected(item);
-    }
-
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
-        // No need to do anything here
-        // the view model will take care of the rest
-    }
 
-    public void navigateToSearchResults(String searchQuery) {
-        HeadlinesFragmentDirections.HeadlinesToSearch action =
-                HeadlinesFragmentDirections.headlinesToSearch();
-        action.setSearchQuery(searchQuery);
-        Navigation.findNavController(getView()).navigate(action);
     }
 }

@@ -18,6 +18,10 @@
             android:id="@+id/headlines_to_about"
             app:enterAnim="@anim/slide_in_left"
             app:destination="@id/nav_about" />
+        <action
+            android:id="@+id/headlines_to_search"
+            app:destination="@id/nav_search_results"
+            app:enterAnim="@anim/slide_in_left" />
     </fragment>
 
     <fragment
@@ -205,4 +209,19 @@
             android:defaultValue="no url"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/nav_search_results"
+        android:name="com.blogspot.sslaia.gunews.ui.SearchResultsFragment"
+        android:label="@string/menu_search_results"
+        tools:layout="@layout/fragment_news">
+        <argument
+            android:name="searchQuery"
+            android:defaultValue="no query"
+            app:argType="string" />
+        <action
+            android:id="@+id/search_results_to_news_page"
+            app:destination="@id/nav_news_page"
+            app:enterAnim="@anim/slide_in_left" />
+    </fragment>
+
 </navigation>

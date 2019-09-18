@@ -80,10 +80,11 @@ public class SearchResultsFragment extends Fragment
                 getString(R.string.settings_page_size_default));
 
         String section = null;
+        String orderBy = "newest";
         String showFields = "byline,shortUrl,thumbnail";
         String apiKey = getString(R.string.theguardian_api_key);
 
-        NewsListViewModelFactory factory = new NewsListViewModelFactory(application, query, section, showFields, pageSize, apiKey);
+        NewsListViewModelFactory factory = new NewsListViewModelFactory(application, query, section, orderBy, showFields, pageSize, apiKey);
 
         newsListViewModel = ViewModelProviders.of(this, factory).get(NewsListViewModel.class);
         newsListViewModel.init();

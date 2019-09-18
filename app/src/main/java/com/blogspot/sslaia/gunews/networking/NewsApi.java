@@ -19,6 +19,7 @@ public interface NewsApi {
     @GET("search")
     Call<NewsItem> getNewsList(@Query("q") String query,
                                @Query("section") String section,
+                               @Query("order-by") String orderBy,
                                @Query("show-fields") String showFields,
                                @Query("page-size") String pageSize,
                                @Query("api-key") String apiKey);

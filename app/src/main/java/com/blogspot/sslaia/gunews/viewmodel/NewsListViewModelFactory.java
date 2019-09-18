@@ -11,14 +11,16 @@ public class NewsListViewModelFactory implements ViewModelProvider.Factory {
     private Application application;
     private String query;
     private String section;
+    private String orderBy;
     private String showFields;
     private String pageSize;
     private String apiKey;
 
-    public NewsListViewModelFactory(Application application, String query, String section, String showFields, String pageSize, String apiKey) {
+    public NewsListViewModelFactory(Application application, String query, String section, String orderBy, String showFields, String pageSize, String apiKey) {
         this.application = application;
         this.query = query;
         this.section = section;
+        this.orderBy = orderBy;
         this.showFields = showFields;
         this.pageSize = pageSize;
         this.apiKey = apiKey;
@@ -27,6 +29,6 @@ public class NewsListViewModelFactory implements ViewModelProvider.Factory {
     @NonNull
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-        return (T) new NewsListViewModel(application, query, section, showFields, pageSize, apiKey);
+        return (T) new NewsListViewModel(application, query, section, orderBy, showFields, pageSize, apiKey);
     }
 }

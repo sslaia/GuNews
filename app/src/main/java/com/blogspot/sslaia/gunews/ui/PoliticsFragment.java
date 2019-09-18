@@ -78,10 +78,11 @@ public class PoliticsFragment extends Fragment
 
         String query = null;
         String section = "politics";
+        String orderBy = "newest";
         String showFields = "byline,shortUrl,thumbnail";
         String apiKey = getString(R.string.theguardian_api_key);
 
-        NewsListViewModelFactory factory = new NewsListViewModelFactory(application, query, section, showFields, pageSize, apiKey);
+        NewsListViewModelFactory factory = new NewsListViewModelFactory(application, query, section, orderBy, showFields, pageSize, apiKey);
 
         newsListViewModel = ViewModelProviders.of(this, factory).get(NewsListViewModel.class);
         newsListViewModel.init();

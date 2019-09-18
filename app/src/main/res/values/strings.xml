@@ -61,7 +61,7 @@
 
     <!-- Preference settings related -->
     <string name="settings_page_size_label">Number of news items to be fetched.\nCaution: Higher numbers would slow down the app and incur huge data usage.</string>
-    <string name="settings_page_size_default">20</string>
+    <string name="settings_page_size_default">10</string>
     <string name="settings_page_size_key" translatable="false">page-size</string>
 
     <!-- TODO: Remove or change this placeholder text -->

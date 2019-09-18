@@ -168,6 +168,6 @@ public class CultureFragment extends Fragment
         CultureFragmentDirections.CultureToHeadlines action =
                 CultureFragmentDirections.cultureToHeadlines();
         action.setSearchWord(searchWord);
-        Navigation.findNavController(getView()).navigate(action);
+        Navigation.findNavController(rootView).navigate(action);
     }
 }

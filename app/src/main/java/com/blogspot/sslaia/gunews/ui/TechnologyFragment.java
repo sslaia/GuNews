@@ -169,6 +169,6 @@ public class TechnologyFragment extends Fragment
         TechnologyFragmentDirections.TechnologyToHeadlines action =
                 TechnologyFragmentDirections.technologyToHeadlines();
         action.setSearchWord(searchWord);
-        Navigation.findNavController(getView()).navigate(action);
+        Navigation.findNavController(rootView).navigate(action);
     }
 }

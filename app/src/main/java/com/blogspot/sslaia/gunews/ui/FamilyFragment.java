@@ -168,6 +168,6 @@ public class FamilyFragment extends Fragment
         FamilyFragmentDirections.FamilyToHeadlines action =
                 FamilyFragmentDirections.familyToHeadlines();
         action.setSearchWord(searchWord);
-        Navigation.findNavController(getView()).navigate(action);
+        Navigation.findNavController(rootView).navigate(action);
     }
 }

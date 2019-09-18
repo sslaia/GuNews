@@ -66,11 +66,11 @@ public class HeadlinesFragment extends Fragment
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        if (getArguments() != null || !getArguments().isEmpty()) {
-            HeadlinesFragmentArgs args = HeadlinesFragmentArgs.fromBundle(getArguments());
-            query = args.getSearchWord();
-        } else {
+        HeadlinesFragmentArgs args = HeadlinesFragmentArgs.fromBundle(getArguments());
+        if (args.getSearchWord().contains("no query")) {
             query = null;
+        } else {
+            query = args.getSearchWord();
         }
 
         PreferenceManager.setDefaultValues(getContext(), R.xml.settings_preferences, false);
@@ -177,6 +177,7 @@ public class HeadlinesFragment extends Fragment
         HeadlinesFragmentDirections.HeadlinesToSearch action =
                 HeadlinesFragmentDirections.headlinesToSearch();
         action.setSearchQuery(searchQuery);
-        Navigation.findNavController(getView()).navigate(action);
+        // The @param rootView replaces getView() that causes app crashes during navigation
+        Navigation.findNavController(rootView).navigate(action);
     }
 }

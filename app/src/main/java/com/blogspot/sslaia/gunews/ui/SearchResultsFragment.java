@@ -171,6 +171,6 @@ public class SearchResultsFragment extends Fragment
         SearchResultsFragmentDirections.SearchResultsToHeadlines action =
                 SearchResultsFragmentDirections.searchResultsToHeadlines();
         action.setSearchWord(searchWord);
-        Navigation.findNavController(getView()).navigate(action);
+        Navigation.findNavController(rootView).navigate(action);
     }
 }

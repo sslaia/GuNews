@@ -167,6 +167,6 @@ public class WellbeingFragment extends Fragment
         WellbeingFragmentDirections.WellbeingToHeadlines action =
                 WellbeingFragmentDirections.wellbeingToHeadlines();
         action.setSearchWord(searchWord);
-        Navigation.findNavController(getView()).navigate(action);
+        Navigation.findNavController(rootView).navigate(action);
     }
 }

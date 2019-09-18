@@ -167,6 +167,6 @@ public class SportFragment extends Fragment
         SportFragmentDirections.SportToHeadlines action =
                 SportFragmentDirections.sportToHeadlines();
         action.setSearchWord(searchWord);
-        Navigation.findNavController(getView()).navigate(action);
+        Navigation.findNavController(rootView).navigate(action);
     }
 }

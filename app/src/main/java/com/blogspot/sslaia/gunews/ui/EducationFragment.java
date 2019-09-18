@@ -169,6 +169,6 @@ public class EducationFragment extends Fragment
         EducationFragmentDirections.EducationToHeadlines action =
                 EducationFragmentDirections.educationToHeadlines();
         action.setSearchWord(searchWord);
-        Navigation.findNavController(getView()).navigate(action);
+        Navigation.findNavController(rootView).navigate(action);
     }
 }

@@ -168,6 +168,6 @@ public class OpinionFragment extends Fragment
         OpinionFragmentDirections.OpinionToHeadlines action =
                 OpinionFragmentDirections.opinionToHeadlines();
         action.setSearchWord(searchWord);
-        Navigation.findNavController(getView()).navigate(action);
+        Navigation.findNavController(rootView).navigate(action);
     }
 }

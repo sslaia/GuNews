@@ -169,6 +169,6 @@ public class PoliticsFragment extends Fragment
         PoliticsFragmentDirections.PoliticsToHeadlines action =
                 PoliticsFragmentDirections.politicsToHeadlines();
         action.setSearchWord(searchWord);
-        Navigation.findNavController(getView()).navigate(action);
+        Navigation.findNavController(rootView).navigate(action);
     }
 }

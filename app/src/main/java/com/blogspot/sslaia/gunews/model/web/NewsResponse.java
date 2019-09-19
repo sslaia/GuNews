@@ -1,4 +1,4 @@
-package com.blogspot.sslaia.gunews.webmodel;
+package com.blogspot.sslaia.gunews.model.web;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;

@@ -8,6 +8,8 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Drawer menu details related -->
+
     <string name="menu_headlines">Headlines</string>
     <string name="menu_culture">Culture</string>
     <string name="menu_education">Education</string>
@@ -21,6 +23,8 @@
     <string name="menu_search_results">Search results</string>
     <string name="menu_about">About</string>
 
+    <!-- Overflow menu details related -->
+
     <string name="action_about">About</string>
     <string name="action_feedback">Feedback</string>
     <string name="action_search">Search</string>
@@ -30,6 +34,15 @@
     <string name="feedback_subject">My feedback to GuNews app</string>
     <string name="open_in_browser">Open in a web browser: \n\n</string>
     <string name="fab_text">GuNews article</string>
+    <string name="settings_order_by_relevance_label">Relevance</string>
+    <string name="settings_order_by_relevance_value">relevance</string>
+    <string name="settings_order_by_newest_label">Newest first</string>
+    <string name="settings_order_by_newest_value">newest</string>
+    <string name="settings_order_by_oldest_label">Oldest first</string>
+    <string name="settings_order_by_oldest_value">oldest</string>
+    <string name="settings_order_by_label">Order By (Select Newest for latest news)</string>
+    <string name="settings_order_by_key" translatable="false">order-by</string>
+    <string name="settings_order_by_default" translatable="false">newest</string>
 
     <string name="section" translatable="false">section</string>
     <string name="headlines">headlines</string>

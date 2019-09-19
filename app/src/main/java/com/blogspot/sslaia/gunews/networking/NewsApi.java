@@ -1,7 +1,7 @@
 package com.blogspot.sslaia.gunews.networking;
 
-import com.blogspot.sslaia.gunews.webmodel.NewsItem;
-import com.blogspot.sslaia.gunews.webmodel.PageItem;
+import com.blogspot.sslaia.gunews.model.web.NewsItem;
+import com.blogspot.sslaia.gunews.model.web.PageItem;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

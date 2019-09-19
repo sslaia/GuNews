@@ -1,4 +1,4 @@
-package com.blogspot.sslaia.gunews.webmodel;
+package com.blogspot.sslaia.gunews.model.web;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

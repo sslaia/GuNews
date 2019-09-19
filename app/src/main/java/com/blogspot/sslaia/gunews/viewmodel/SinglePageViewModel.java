@@ -6,9 +6,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.blogspot.sslaia.gunews.repository.NewsUrlRepository;
 import com.blogspot.sslaia.gunews.repository.SinglePageRepository;
-import com.blogspot.sslaia.gunews.webmodel.PageItem;
+import com.blogspot.sslaia.gunews.model.web.PageItem;
 
 public class SinglePageViewModel extends ViewModel {
 

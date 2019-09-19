@@ -1,37 +1,19 @@
-package com.blogspot.sslaia.gunews.webmodel;
+package com.blogspot.sslaia.gunews.model.web;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class PageFields {
-
-    @SerializedName("headline")
-    @Expose
-    private String headline;
+public class NewsFields {
 
     @SerializedName("byline")
     @Expose
     private String byline;
-
-    @SerializedName("body")
-    @Expose
-    private String body;
-
     @SerializedName("shortUrl")
     @Expose
     private String shortUrl;
-
     @SerializedName("thumbnail")
     @Expose
     private String thumbnail;
-
-    public String getHeadline() {
-        return headline;
-    }
-
-    public void setHeadline(String headline) {
-        this.headline = headline;
-    }
 
     public String getByline() {
         return byline;
@@ -39,14 +21,6 @@ public class PageFields {
 
     public void setByline(String byline) {
         this.byline = byline;
-    }
-
-    public String getBody() {
-        return body;
-    }
-
-    public void setBody(String body) {
-        this.body = body;
     }
 
     public String getShortUrl() {

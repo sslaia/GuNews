@@ -28,8 +28,9 @@ import com.blogspot.sslaia.gunews.R;
 import com.blogspot.sslaia.gunews.adapter.NewsAdapter;
 import com.blogspot.sslaia.gunews.viewmodel.NewsListViewModel;
 import com.blogspot.sslaia.gunews.viewmodel.NewsListViewModelFactory;
-import com.blogspot.sslaia.gunews.webmodel.NewsItem;
-import com.blogspot.sslaia.gunews.webmodel.NewsResult;
+import com.blogspot.sslaia.gunews.model.web.NewsItem;
+import com.blogspot.sslaia.gunews.model.web.NewsResult;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +50,8 @@ public class WellbeingFragment extends Fragment
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CollapsingToolbarLayout collapsingToolbarLayout = getActivity().findViewById(R.id.collapsing_toolbar);
+        collapsingToolbarLayout.setTitle("Wellbeing");
         setHasOptionsMenu(true);
     }
 
@@ -70,13 +73,15 @@ public class WellbeingFragment extends Fragment
         PreferenceManager.setDefaultValues(getContext(), R.xml.settings_preferences, false);
         mPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         mPrefs.registerOnSharedPreferenceChangeListener(this);
+        String orderBy = mPrefs.getString(
+                getString(R.string.settings_order_by_key),
+                getString(R.string.settings_order_by_default));
         String pageSize = mPrefs.getString(
                 getString(R.string.settings_page_size_key),
                 getString(R.string.settings_page_size_default));
 
         String query = "health wellbeing lifestyle environment food";
         String section = null;
-        String orderBy = "newest";
         String showFields = "byline,shortUrl,thumbnail";
         String apiKey = getString(R.string.theguardian_api_key);
 

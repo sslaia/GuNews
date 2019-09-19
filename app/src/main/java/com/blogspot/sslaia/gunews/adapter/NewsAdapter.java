@@ -1,7 +1,6 @@
 package com.blogspot.sslaia.gunews.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.blogspot.sslaia.gunews.R;
-import com.blogspot.sslaia.gunews.webmodel.NewsResult;
+import com.blogspot.sslaia.gunews.model.web.NewsResult;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;

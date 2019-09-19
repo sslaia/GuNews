@@ -19,8 +19,8 @@ import androidx.lifecycle.ViewModelProviders;
 import com.blogspot.sslaia.gunews.R;
 import com.blogspot.sslaia.gunews.viewmodel.SinglePageViewModel;
 import com.blogspot.sslaia.gunews.viewmodel.SinglePageViewModelFactory;
-import com.blogspot.sslaia.gunews.webmodel.PageContent;
-import com.blogspot.sslaia.gunews.webmodel.PageItem;
+import com.blogspot.sslaia.gunews.model.web.PageContent;
+import com.blogspot.sslaia.gunews.model.web.PageItem;
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 

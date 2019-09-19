@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.blogspot.sslaia.gunews.repository.NewsUrlRepository;
-import com.blogspot.sslaia.gunews.webmodel.NewsItem;
+import com.blogspot.sslaia.gunews.model.web.NewsItem;
 
 public class NewsUrlViewModel extends ViewModel {
 

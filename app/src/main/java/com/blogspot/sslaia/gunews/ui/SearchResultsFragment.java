@@ -3,7 +3,6 @@ package com.blogspot.sslaia.gunews.ui;
 import android.app.Application;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -29,8 +28,8 @@ import com.blogspot.sslaia.gunews.R;
 import com.blogspot.sslaia.gunews.adapter.NewsAdapter;
 import com.blogspot.sslaia.gunews.viewmodel.NewsListViewModel;
 import com.blogspot.sslaia.gunews.viewmodel.NewsListViewModelFactory;
-import com.blogspot.sslaia.gunews.webmodel.NewsItem;
-import com.blogspot.sslaia.gunews.webmodel.NewsResult;
+import com.blogspot.sslaia.gunews.model.web.NewsItem;
+import com.blogspot.sslaia.gunews.model.web.NewsResult;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,12 +74,14 @@ public class SearchResultsFragment extends Fragment
         PreferenceManager.setDefaultValues(getContext(), R.xml.settings_preferences, false);
         mPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         mPrefs.registerOnSharedPreferenceChangeListener(this);
+        String orderBy = mPrefs.getString(
+                getString(R.string.settings_order_by_key),
+                getString(R.string.settings_order_by_default));
         String pageSize = mPrefs.getString(
                 getString(R.string.settings_page_size_key),
                 getString(R.string.settings_page_size_default));
 
         String section = null;
-        String orderBy = "newest";
         String showFields = "byline,shortUrl,thumbnail";
         String apiKey = getString(R.string.theguardian_api_key);
 

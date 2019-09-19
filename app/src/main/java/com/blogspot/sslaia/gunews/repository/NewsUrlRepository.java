@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.blogspot.sslaia.gunews.networking.NewsApi;
 import com.blogspot.sslaia.gunews.networking.NewsService;
-import com.blogspot.sslaia.gunews.webmodel.NewsItem;
+import com.blogspot.sslaia.gunews.model.web.NewsItem;
 
 import retrofit2.Call;
 import retrofit2.Callback;

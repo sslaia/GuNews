@@ -30,6 +30,7 @@ import com.blogspot.sslaia.gunews.viewmodel.NewsListViewModel;
 import com.blogspot.sslaia.gunews.viewmodel.NewsListViewModelFactory;
 import com.blogspot.sslaia.gunews.model.web.NewsItem;
 import com.blogspot.sslaia.gunews.model.web.NewsResult;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +51,8 @@ public class SearchResultsFragment extends Fragment
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CollapsingToolbarLayout collapsingToolbarLayout = getActivity().findViewById(R.id.collapsing_toolbar);
+        collapsingToolbarLayout.setTitle("Search results");
         setHasOptionsMenu(true);
     }
 

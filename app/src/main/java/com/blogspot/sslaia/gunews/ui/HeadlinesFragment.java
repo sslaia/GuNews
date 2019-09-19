@@ -52,7 +52,7 @@ public class HeadlinesFragment extends Fragment
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         CollapsingToolbarLayout collapsingToolbarLayout = getActivity().findViewById(R.id.collapsing_toolbar);
-        collapsingToolbarLayout.setTitle("Headlines");
+        collapsingToolbarLayout.setTitle("GuNews Headlines");
         setHasOptionsMenu(true);
     }
 

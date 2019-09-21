@@ -14,7 +14,10 @@ import com.blogspot.sslaia.gunews.R;
 import com.blogspot.sslaia.gunews.model.web.NewsResult;
 import com.bumptech.glide.Glide;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
 
@@ -43,7 +46,22 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
         NewsResult currentItem = mNewsItems.get(position);
         holder.mTitle.setText(currentItem.getWebTitle());
-        holder.mDate.setText(currentItem.getWebPublicationDate().substring(0, 10));
+//        holder.mDate.setText(currentItem.getWebPublicationDate().substring(0, 10));
+        // Convert the original date format to reading friendly dd-MM-yyyy
+        try {
+            // First convert the date string to date format
+            String originalDate = currentItem.getWebPublicationDate();
+            SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss'Z'");
+            Date newDate = sdf1.parse(originalDate);
+            // Then convert the date back to string format
+            SimpleDateFormat sdf2 = new SimpleDateFormat("dd MMMM yyyy");
+            String date = sdf2.format(newDate);
+            // Set the dateView
+            holder.mDate.setText(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
         String section = currentItem.getSectionName();
         if (section == null) {
             holder.mSection.setVisibility(View.GONE);

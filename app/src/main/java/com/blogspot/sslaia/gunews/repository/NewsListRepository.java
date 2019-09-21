@@ -2,9 +2,11 @@ package com.blogspot.sslaia.gunews.repository;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.blogspot.sslaia.gunews.networking.NewsApi;
-import com.blogspot.sslaia.gunews.networking.NewsService;
+import com.blogspot.sslaia.gunews.api.NewsApi;
+import com.blogspot.sslaia.gunews.api.NewsApiFactory;
 import com.blogspot.sslaia.gunews.model.web.NewsItem;
+
+import java.util.Date;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -15,7 +17,7 @@ public class NewsListRepository {
     private static NewsApi newsApi;
 
     public NewsListRepository() {
-        newsApi = NewsService.cteateService(NewsApi.class);
+        newsApi = NewsApiFactory.cteateService(NewsApi.class);
     }
 
     public static NewsListRepository getInstance() {
@@ -25,10 +27,10 @@ public class NewsListRepository {
         return newsListRepository;
     }
 
-    public MutableLiveData<NewsItem> getNewsList(String query, String section, String orderBy, String showFields, String pageSize, String apiKey) {
+    public MutableLiveData<NewsItem> getNewsList(String query, String section, String orderBy, String showFields, int page, String pageSize, String apiKey) {
         final MutableLiveData<NewsItem> newsList = new MutableLiveData<>();
 
-        newsApi.getNewsList(query,section,orderBy, showFields,pageSize,apiKey).enqueue(new Callback<NewsItem>() {
+        newsApi.getNewsList(query, section,orderBy, showFields, page, pageSize, apiKey).enqueue(new Callback<NewsItem>() {
             @Override
             public void onResponse(Call<NewsItem> call, Response<NewsItem> response) {
                 if (response.isSuccessful()) {

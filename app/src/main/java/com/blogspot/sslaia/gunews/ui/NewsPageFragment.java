@@ -59,9 +59,7 @@ public class NewsPageFragment extends Fragment {
         final List<PageContent> pageList = new ArrayList<>();
 
         NewsPageFragmentArgs args = NewsPageFragmentArgs.fromBundle(getArguments());
-        pageUrl = args.getPageUrl();
-        requestUrl = pageUrl + "?show-fields=headline,byline,body,shortUrl,thumbnail&api-key=" + getString(R.string.theguardian_api_key);
-//        thumbnailUrl = args.getThumbnailUrl();
+        requestUrl = args.getPageUrl() + "?show-fields=headline,byline,body,shortUrl,thumbnail&api-key=" + getString(R.string.theguardian_api_key);
 
         SinglePageViewModelFactory pageFactory = new SinglePageViewModelFactory(application, requestUrl);
         SinglePageViewModel singlePageViewModel = ViewModelProviders.of(this, pageFactory).get(SinglePageViewModel.class);

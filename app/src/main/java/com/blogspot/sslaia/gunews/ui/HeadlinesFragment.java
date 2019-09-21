@@ -33,6 +33,7 @@ import com.blogspot.sslaia.gunews.model.web.NewsResult;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class HeadlinesFragment extends Fragment
@@ -78,6 +79,7 @@ public class HeadlinesFragment extends Fragment
         PreferenceManager.setDefaultValues(getContext(), R.xml.settings_preferences, false);
         mPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         mPrefs.registerOnSharedPreferenceChangeListener(this);
+        // For the headlines we set the orderBy to always newest
 //        String orderBy = mPrefs.getString(
 //                getString(R.string.settings_order_by_key),
 //                getString(R.string.settings_order_by_default));
@@ -85,12 +87,16 @@ public class HeadlinesFragment extends Fragment
                 getString(R.string.settings_page_size_key),
                 getString(R.string.settings_page_size_default));
 
+        Date fromDate = null;
+        Date toDate = null;
+
         String section = null;
         String orderBy = "newest";
         String showFields = "byline,shortUrl,thumbnail";
+        int page = 1;
         String apiKey = getString(R.string.theguardian_api_key);
 
-        NewsListViewModelFactory factory = new NewsListViewModelFactory(application, query, section, orderBy, showFields, pageSize, apiKey);
+        NewsListViewModelFactory factory = new NewsListViewModelFactory(application, query, section, orderBy, showFields, page, pageSize, apiKey);
 
         newsListViewModel = ViewModelProviders.of(this, factory).get(NewsListViewModel.class);
         // This line makes sure the viewmodel is only run once

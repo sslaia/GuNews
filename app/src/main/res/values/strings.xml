@@ -64,11 +64,11 @@
     <string name="attribution"><b>News source</b>: theguardian.com, one of the few trusted news sources nowadays. <i>So guaranteed no fake</i>.\n\n<b>Code source</b>: The app was based on the example app by Amit Kumar Tiwari (https://github.com/Amit00a/MVVMNews). Some particular solutions are from stockoverflow.com and codinginflow.com.\n\n<b>Special thank you</b>: to codinginflow.com that provides some of the best tutorials out there. His tutorials are concise but without missing the most important bits for beginners, that is not always the case with other tutorials.</string>
 
     <!-- Others -->
-
-    <string name="empty_text_message">Sorry. Failed to get the news.</string>
+    <string name="empty_text">Empty text place holder</string>
+    <string name="empty_please_connect">No connection.\nPlease turn on WiFi or cellular data.\n\n</string>
+    <string name="empty_server_unreachable">Sorry. The server didn\'t respond.</string>
     <string name="news_image">News related image</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="check_internet_address">www.google.com</string>
     <string name="details_news_page">News single page</string>
     <string name="title_activity_settings">Settings</string>
 
@@ -76,8 +76,5 @@
     <string name="settings_page_size_label">Number of news items to be fetched.\nCaution: Higher numbers would slow down the app and incur huge data usage.</string>
     <string name="settings_page_size_default">10</string>
     <string name="settings_page_size_key" translatable="false">page-size</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

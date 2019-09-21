@@ -2,8 +2,8 @@ package com.blogspot.sslaia.gunews.repository;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.blogspot.sslaia.gunews.networking.NewsApi;
-import com.blogspot.sslaia.gunews.networking.NewsService;
+import com.blogspot.sslaia.gunews.api.NewsApi;
+import com.blogspot.sslaia.gunews.api.NewsApiFactory;
 import com.blogspot.sslaia.gunews.model.web.NewsItem;
 
 import retrofit2.Call;
@@ -15,7 +15,7 @@ public class NewsUrlRepository {
     private static NewsApi newsApi;
 
     public NewsUrlRepository() {
-        newsApi = NewsService.cteateService(NewsApi.class);
+        newsApi = NewsApiFactory.cteateService(NewsApi.class);
     }
 
     public static NewsUrlRepository getInstance() {

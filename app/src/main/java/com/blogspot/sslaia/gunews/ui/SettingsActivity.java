@@ -12,13 +12,15 @@ import androidx.preference.PreferenceFragmentCompat;
 
 import com.blogspot.sslaia.gunews.R;
 
+import java.util.Date;
+
 public class SettingsActivity extends AppCompatActivity implements
         PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
 
     private static final String TITLE_TAG = "settingsActivityTitle";
     private SharedPreferences mPrefs;
     private SharedPreferences.Editor mEditor;
-    private String pageSize;
+    private int pageSize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +52,7 @@ public class SettingsActivity extends AppCompatActivity implements
         mEditor = mPrefs.edit();
 
         // TODO: get the page size here
-        mPrefs.getString("pageSize", pageSize);
+        mPrefs.getInt("pageSize", pageSize);
     }
 
     @Override
@@ -86,18 +88,18 @@ public class SettingsActivity extends AppCompatActivity implements
         return true;
     }
 
+    // Save the settings preferences
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mEditor.commit();
+    }
+
     public static class HeaderFragment extends PreferenceFragmentCompat {
 
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.settings_preferences, rootKey);
         }
-    }
-
-    // Save the settings preferences
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mEditor.commit();
     }
 }

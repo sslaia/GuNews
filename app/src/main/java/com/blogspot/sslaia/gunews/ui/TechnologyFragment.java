@@ -83,9 +83,10 @@ public class TechnologyFragment extends Fragment
         String query = "technology science android";
         String section = null;
         String showFields = "byline,shortUrl,thumbnail";
+        int page = 1;
         String apiKey = getString(R.string.theguardian_api_key);
 
-        NewsListViewModelFactory factory = new NewsListViewModelFactory(application, query, section, orderBy, showFields, pageSize, apiKey);
+        NewsListViewModelFactory factory = new NewsListViewModelFactory(application, query, section, orderBy, showFields, page, pageSize, apiKey);
 
         newsListViewModel = ViewModelProviders.of(this, factory).get(NewsListViewModel.class);
         newsListViewModel.init();

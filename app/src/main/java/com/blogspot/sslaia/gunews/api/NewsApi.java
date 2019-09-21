@@ -1,7 +1,9 @@
-package com.blogspot.sslaia.gunews.networking;
+package com.blogspot.sslaia.gunews.api;
 
 import com.blogspot.sslaia.gunews.model.web.NewsItem;
 import com.blogspot.sslaia.gunews.model.web.PageItem;
+
+import java.util.Date;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -21,6 +23,7 @@ public interface NewsApi {
                                @Query("section") String section,
                                @Query("order-by") String orderBy,
                                @Query("show-fields") String showFields,
+                               @Query("page") int page,
                                @Query("page-size") String pageSize,
                                @Query("api-key") String apiKey);
 

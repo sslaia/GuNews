@@ -1,12 +1,14 @@
-package com.blogspot.sslaia.gunews.networking;
+package com.blogspot.sslaia.gunews.api;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class NewsService {
+public class NewsApiFactory {
+
+    private static String BASE_URL = "https://content.guardianapis.com/";
 
     private static Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://content.guardianapis.com/")
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 

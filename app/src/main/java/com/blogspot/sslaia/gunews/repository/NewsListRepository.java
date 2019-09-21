@@ -27,7 +27,7 @@ public class NewsListRepository {
         return newsListRepository;
     }
 
-    public MutableLiveData<NewsItem> getNewsList(String query, String section, String orderBy, String showFields, int page, String pageSize, String apiKey) {
+    public MutableLiveData<NewsItem> getNewsList(String query, String section, String orderBy, String showFields, int page, int pageSize, String apiKey) {
         final MutableLiveData<NewsItem> newsList = new MutableLiveData<>();
 
         newsApi.getNewsList(query, section,orderBy, showFields, page, pageSize, apiKey).enqueue(new Callback<NewsItem>() {

@@ -75,9 +75,9 @@ public class EducationFragment extends Fragment
         String orderBy = mPrefs.getString(
                 getString(R.string.settings_order_by_key),
                 getString(R.string.settings_order_by_default));
-        String pageSize = mPrefs.getString(
+        int pageSize = Integer.parseInt(mPrefs.getString(
                 getString(R.string.settings_page_size_key),
-                getString(R.string.settings_page_size_default));
+                getString(R.string.settings_page_size_default)));
 
         String query = "school education children";
         String section = null;
@@ -92,7 +92,7 @@ public class EducationFragment extends Fragment
         newsListViewModel.getNewsListRepository().observe(getViewLifecycleOwner(), new Observer<NewsItem>() {
             @Override
             public void onChanged(NewsItem newsItems) {
-                List<NewsResult> newsArticles = newsItems.getResponse().getResults();
+                List<NewsResult> newsArticles = newsItems.getNewsResponse().getNewsResults();
                 newsList.addAll(newsArticles);
                 newsAdapter.notifyDataSetChanged();
             }
@@ -120,7 +120,7 @@ public class EducationFragment extends Fragment
 
         NewsResult clickedItem = newsList.get(position);
         String apiUrl = clickedItem.getApiUrl();
-        String thumbnailUrl = clickedItem.getFields().getThumbnail();
+        String thumbnailUrl = clickedItem.getNewsFields().getThumbnail();
 
         if (apiUrl == null || apiUrl.isEmpty()) {
             Toast.makeText(getContext(), "Error in getting the web page address", Toast.LENGTH_SHORT).show();

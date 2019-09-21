@@ -70,7 +70,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         }
 
         try {
-            String imageUrl = currentItem.getFields().getThumbnail();
+            String imageUrl = currentItem.getNewsFields().getThumbnail();
             if (imageUrl == null || imageUrl.isEmpty()) {
                 holder.mImage.setVisibility(View.GONE);
             } else {

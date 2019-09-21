@@ -98,11 +98,11 @@ public class NewsResponse {
         this.orderBy = orderBy;
     }
 
-    public List<NewsResult> getResults() {
+    public List<NewsResult> getNewsResults() {
         return results;
     }
 
-    public void setResults(List<NewsResult> results) {
+    public void setNewsResults(List<NewsResult> results) {
         this.results = results;
     }
 

@@ -24,7 +24,7 @@ public interface NewsApi {
                                @Query("order-by") String orderBy,
                                @Query("show-fields") String showFields,
                                @Query("page") int page,
-                               @Query("page-size") String pageSize,
+                               @Query("page-size") int pageSize,
                                @Query("api-key") String apiKey);
 
 }

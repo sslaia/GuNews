@@ -1,5 +1,9 @@
 package com.blogspot.sslaia.gunews.model.web;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.DiffUtil;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -106,11 +110,11 @@ public class NewsResult {
         this.apiUrl = apiUrl;
     }
 
-    public NewsFields getFields() {
+    public NewsFields getNewsFields() {
         return fields;
     }
 
-    public void setFields(NewsFields fields) {
+    public void setNewsFields(NewsFields fields) {
         this.fields = fields;
     }
 
@@ -138,4 +142,22 @@ public class NewsResult {
         this.pillarName = pillarName;
     }
 
+    public static DiffUtil.ItemCallback<NewsResult> DIFF_CALLBACK = new DiffUtil.ItemCallback<NewsResult>() {
+        @Override
+        public boolean areItemsTheSame(@NonNull NewsResult oldItem, @NonNull NewsResult newItem) {
+            return oldItem.id == newItem.id;
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull NewsResult oldItem, @NonNull NewsResult newItem) {
+            return oldItem.equals(newItem);
+        }
+    };
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        if (obj == this) return true;
+        NewsResult newsResult = (NewsResult) obj;
+        return newsResult.id == this.id;
+    }
 }

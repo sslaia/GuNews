@@ -9,7 +9,7 @@ public class NewsItem {
     @Expose
     private NewsResponse response;
 
-    public NewsResponse getResponse() {
+    public NewsResponse getNewsResponse() {
         return response;
     }
 

@@ -38,8 +38,6 @@ public class NewsPageFragment extends Fragment {
     private String thumbnailUrl;
     private String headline;
 
-
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_news_page, container, false);

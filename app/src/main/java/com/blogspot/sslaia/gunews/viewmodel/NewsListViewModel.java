@@ -6,10 +6,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.blogspot.sslaia.gunews.repository.NewsListRepository;
 import com.blogspot.sslaia.gunews.model.web.NewsItem;
-
-import java.util.Date;
+import com.blogspot.sslaia.gunews.repository.NewsListRepository;
 
 public class NewsListViewModel extends ViewModel {
 
@@ -21,10 +19,10 @@ public class NewsListViewModel extends ViewModel {
     private String orderBy;
     private String showFields;
     private int page;
-    private String pageSize;
+    private int pageSize;
     private String apiKey;
 
-    public NewsListViewModel(Application application, String query, String section, String orderBy, String showFields, int page, String pageSize, String apiKey) {
+    public NewsListViewModel(Application application, String query, String section, String orderBy, String showFields, int page, int pageSize, String apiKey) {
         this.application = application;
         this.query = query;
         this.section = section;

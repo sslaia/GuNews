@@ -16,10 +16,10 @@ public class NewsListViewModelFactory implements ViewModelProvider.Factory {
     private String orderBy;
     private String showFields;
     private int page;
-    private String pageSize;
+    private int pageSize;
     private String apiKey;
 
-    public NewsListViewModelFactory(Application application, String query, String section, String orderBy, String showFields, int page, String pageSize, String apiKey) {
+    public NewsListViewModelFactory(Application application, String query, String section, String orderBy, String showFields, int page, int pageSize, String apiKey) {
         this.application = application;
         this.query = query;
         this.section = section;

@@ -51,8 +51,9 @@ public class SettingsActivity extends AppCompatActivity implements
         mPrefs = getSharedPreferences("GuNews page size", MODE_PRIVATE);
         mEditor = mPrefs.edit();
 
+
         // TODO: get the page size here
-        mPrefs.getInt("pageSize", pageSize);
+//        mPrefs.getInt("pageSize", pageSize);
     }
 
     @Override
@@ -92,6 +93,7 @@ public class SettingsActivity extends AppCompatActivity implements
     @Override
     protected void onPause() {
         super.onPause();
+        mEditor.putInt("pageSize", pageSize);
         mEditor.commit();
     }
 

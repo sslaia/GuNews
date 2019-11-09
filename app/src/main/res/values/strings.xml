@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">GuNews</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">GuNews</string>
+    <string name="nav_header_subtitle">my daily news briefing</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_feedback">Feedback</string>
+    <string name="action_share">Share</string>
+    <string name="action_search">Search</string>
+    <string name="action_about">About</string>
+
+    <string name="title_activity_settings">Settings</string>
+    <string name="settings_order_by_relevance_label">Relevance</string>
+    <string name="settings_order_by_relevance_value" translatable="false">relevance</string>
+    <string name="settings_order_by_newest_label">Newest first</string>
+    <string name="settings_order_by_newest_value" translatable="false">newest</string>
+    <string name="settings_order_by_oldest_label">Oldest first</string>
+    <string name="settings_order_by_oldest_value" translatable="false">oldest</string>
+    <string name="settings_order_by_label">Sort the news by</string>
+    <string name="settings_order_by_key" translatable="false">order-by</string>
+    <string name="settings_order_by_default" translatable="false">newest</string>
+    <string name="share_text">Search for GuNews app by Sirus Laia on Google Play Store\n\nGuNews. Powered by theguardian.com</string>
+    <string name="feedback_mailto" translatable="false">mailto:laia.sirus@gmail.com</string>
+    <string name="feedback_subject">My feedback to GuNews app</string>
+
+    <string name="menu_headlines">Headlines</string>
+    <string name="menu_headlines_title">GuNews Headlines</string>
+    <string name="menu_culture">Culture</string>
+    <string name="menu_education">Education</string>
+    <string name="menu_family">Family</string>
+    <string name="menu_hrights">Human Rights</string>
+    <string name="menu_opinion">Opinion</string>
+    <string name="menu_politics">Politics</string>
+    <string name="menu_sport">Sport</string>
+    <string name="menu_technology">Technology</string>
+    <string name="menu_wellbeing">Wellbeing</string>
+    <string name="menu_about">About</string>
+    <string name="menu_attribution">Attribution</string>
+    <string name="menu_connection">No connection</string>
+    <string name="menu_search">Search results</string>
+    <string name="menu_search2">The search results</string>
+
+    <string name="date_format" formatted="false">%s at %s by</string>
+    <string name="not_available">N/A</string>
+    <string name="query_culture" translatable="false">culture entertainment media</string>
+    <string name="query_education" translatable="false">education school children</string>
+    <string name="query_family" translatable="false">family society community</string>
+    <string name="query_hrights" translatable="false">\"human rights\"</string>
+    <string name="query_sport" translatable="false">football sport</string>
+    <string name="query_technology" translatable="false">technology science android</string>
+    <string name="query_wellbeing" translatable="false">health wellbeing lifestyle environment food</string>
+    <string name="section_opinion" translatable="false">commentisfree</string>
+    <string name="section_politics" translatable="false">politics</string>
+    <string name="show_fields" translatable="false">byline,shortUrl,thumbnail</string>
+    <string name="order_by_newest" translatable="false">newest</string>
+
+    <!-- About & attribution -->
+
+    <string name="about_the_app">About GuNews</string>
+    <string name="about_me_header">About Me</string>
+    <string name="about_me">Quite late to late to coding, but I have been always interested in IT.\n\nSo when I hadn\'t started my official Android programming course yet, I was running a project I called the Nias Keyboard Project. Basically coding for Android before learning how to code :)\n\nI have a few apps ideas so I\'m looking forward to learning enough and starting real work!\n\nBTW the Udacity\'s nanodegree program in Android Basics I accomplished in July 2019 is only the beginning.\n\nPlease don\'t hesitate to giving me feedback. Just reach out by clicking on this floating action bar or by sending feedback in the app Settings.</string>
+    <string name="attribution"><b>News source</b>: theguardian.com, one of the few trusted news sources nowadays. <i>So guaranteed no fake</i>.\n\n<b>Code source</b>: The app used the example app by Anitaa Murthy (https://github.com/anitaa1990/PagingLibrary-Sample) as starting point. Some particular solutions are from stockoverflow.com and clearly referenced in the code.\n\n<b>Image</b>: Earth by WikiImages (https://pixabay.com/photos/earth-soil-creep-moon-lunar-surface-11014 )</string>
+
+    <!-- Various -->
+
+    <string name="news_image">News related image</string>
+    <string name="no_internet_message">No Internet.\n\nPlease check the Internet connection.\nTurn on WiFi or mobile data.</string>
+    <string name="content_description">News related image</string>
+
+    <!-- Settings preferences -->
+    <string name="newsadapter_switch">Switch off to hide images</string>
+    <string name="newsadapter_switch_label">Show images in the news list</string>
+    <string name="newsadapter_with_images">showImages</string>
+
+</resources>

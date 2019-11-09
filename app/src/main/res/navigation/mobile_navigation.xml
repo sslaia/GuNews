@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_headlines">
+
+    <fragment
+        android:id="@+id/nav_headlines"
+        android:name="com.blogspot.sslaia.gunewsv1.ui.HeadlinesFragment"
+        android:label="@string/menu_headlines"
+        tools:layout="@layout/fragment_recyclerview">
+        <action
+            android:id="@+id/headlines_to_search"
+            app:destination="@id/nav_search"
+            app:enterAnim="@anim/slide_in_left"/>
+        <action
+            android:id="@+id/headlines_to_connection"
+            app:destination="@id/nav_connection"
+            app:enterAnim="@anim/slide_in_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_culture"
+        android:name="com.blogspot.sslaia.gunewsv1.ui.CultureFragment"
+        android:label="@string/menu_culture"
+        tools:layout="@layout/fragment_recyclerview">
+        <action
+            android:id="@+id/culture_to_connection"
+            app:destination="@id/nav_connection"
+            app:enterAnim="@anim/slide_in_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_education"
+        android:name="com.blogspot.sslaia.gunewsv1.ui.EducationFragment"
+        android:label="@string/menu_education"
+        tools:layout="@layout/fragment_recyclerview">
+        <action
+            android:id="@+id/education_to_connection"
+            app:destination="@id/nav_connection"
+            app:enterAnim="@anim/slide_in_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_family"
+        android:name="com.blogspot.sslaia.gunewsv1.ui.FamilyFragment"
+        android:label="@string/menu_family"
+        tools:layout="@layout/fragment_recyclerview">
+        <action
+            android:id="@+id/family_to_connection"
+            app:destination="@id/nav_connection"
+            app:enterAnim="@anim/slide_in_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_hrights"
+        android:name="com.blogspot.sslaia.gunewsv1.ui.HrightsFragment"
+        android:label="@string/menu_hrights"
+        tools:layout="@layout/fragment_recyclerview">
+        <action
+            android:id="@+id/hrigts_to_connection"
+            app:destination="@id/nav_connection"
+            app:enterAnim="@anim/slide_in_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_opinion"
+        android:name="com.blogspot.sslaia.gunewsv1.ui.OpinionFragment"
+        android:label="@string/menu_opinion"
+        tools:layout="@layout/fragment_recyclerview">
+        <action
+            android:id="@+id/opinion_to_connection"
+            app:destination="@id/nav_connection"
+            app:enterAnim="@anim/slide_in_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_politics"
+        android:name="com.blogspot.sslaia.gunewsv1.ui.PoliticsFragment"
+        android:label="@string/menu_politics"
+        tools:layout="@layout/fragment_recyclerview">
+        <action
+            android:id="@+id/politics_to_connection"
+            app:destination="@id/nav_connection"
+            app:enterAnim="@anim/slide_in_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_sport"
+        android:name="com.blogspot.sslaia.gunewsv1.ui.SportFragment"
+        android:label="@string/menu_sport"
+        tools:layout="@layout/fragment_recyclerview">
+        <action
+            android:id="@+id/sport_to_connection"
+            app:destination="@id/nav_connection"
+            app:enterAnim="@anim/slide_in_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_technology"
+        android:name="com.blogspot.sslaia.gunewsv1.ui.TechnologyFragment"
+        android:label="@string/menu_technology"
+        tools:layout="@layout/fragment_recyclerview">
+        <action
+            android:id="@+id/technology_to_connection"
+            app:destination="@id/nav_connection"
+            app:enterAnim="@anim/slide_in_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_wellbeing"
+        android:name="com.blogspot.sslaia.gunewsv1.ui.WellbeingFragment"
+        android:label="@string/menu_wellbeing"
+        tools:layout="@layout/fragment_recyclerview">
+        <action
+            android:id="@+id/wellbeing_to_connection"
+            app:destination="@id/nav_connection"
+            app:enterAnim="@anim/slide_in_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_search"
+        android:name="com.blogspot.sslaia.gunewsv1.ui.SearchResultsFragment"
+        android:label="@string/menu_search"
+        tools:layout="@layout/fragment_recyclerview">
+        <argument
+            android:name="searchQuery"
+            android:defaultValue="noQuery"
+            app:argType="string" />
+        <action
+            android:id="@+id/search_to_search2"
+            app:destination="@id/nav_search2"
+            app:enterAnim="@anim/slide_in_right"/>
+        <action
+            android:id="@+id/search_to_connection"
+            app:destination="@id/nav_connection"
+            app:enterAnim="@anim/slide_in_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_search2"
+        android:name="com.blogspot.sslaia.gunewsv1.ui.SearchResults2Fragment"
+        android:label="@string/menu_search"
+        tools:layout="@layout/fragment_recyclerview">
+        <argument
+            android:name="searchWord"
+            android:defaultValue="noQuery"
+            app:argType="string" />
+        <action
+            android:id="@+id/search2_to_search"
+            app:destination="@id/nav_search"
+            app:enterAnim="@anim/slide_in_right"/>
+        <action
+            android:id="@+id/search2_to_connection"
+            app:destination="@id/nav_connection"
+            app:enterAnim="@anim/slide_in_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.blogspot.sslaia.gunewsv1.ui.AboutFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragment_about"/>
+
+    <fragment
+        android:id="@+id/nav_connection"
+        android:name="com.blogspot.sslaia.gunewsv1.ui.NoConnectionFragment"
+        android:label="@string/menu_connection"
+        tools:layout="@layout/fragment_no_connection">
+        <action
+            android:id="@+id/connection_to_headlines"
+            app:destination="@id/nav_headlines"
+            app:enterAnim="@anim/slide_in_right"/>
+    </fragment>
+
+</navigation>

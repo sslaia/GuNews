@@ -1,7 +1,19 @@
 # GuNews
 GuNews is a News headlines app that is free of clutter and overloaded features.
-It is the improved version of achida guNews that follows the MVVM principles.
+It follows the MVVM principles, which Google has been promoting.
 
 And of course: it's powered by theguardian.com,
 one of few trustworthy news sources out there
 in this time of fake news epidemic.
+
+
+**Please note**: The app shows headlines with news related images. This could eat into your data allowance, especially if you are on limited cellular data. To reduce data usage, go to the *Settings* and switch off *Show images in the news list*.
+
+
+## GuNews and GoNews?
+
+**GuNews** focuses on showing *guaranteed fake-free news* and to make that happen, GuNews is sourced from trusted news only, i.e. *theguardian.com*. **GoNews** meanwhile shows *unfiltered news* from various news outlets from many countries. For these kind of news the app relies of the free service, which has limited daily request, provided by *newsapi.org*.
+
+In short: if you want to be safe use GuNews. However if you are proficient enough to spot real news headlines, click-baiting and bombastic headlines and suspected fake-news stories, use GoNews.
+
+I may combine the two in one app in the future.

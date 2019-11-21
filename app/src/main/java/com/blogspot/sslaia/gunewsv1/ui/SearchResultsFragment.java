@@ -16,7 +16,6 @@ import androidx.navigation.Navigation;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -27,7 +26,6 @@ import android.view.inputmethod.EditorInfo;
 
 import com.blogspot.sslaia.gunewsv1.R;
 import com.blogspot.sslaia.gunewsv1.adapter.NewsAdapter;
-import com.blogspot.sslaia.gunewsv1.adapter.NewsExtraAdapter;
 import com.blogspot.sslaia.gunewsv1.databinding.NewsActivityBinding;
 import com.blogspot.sslaia.gunewsv1.helpers.ConnectionLiveData;
 import com.blogspot.sslaia.gunewsv1.helpers.ConnectionModel;
@@ -81,28 +79,21 @@ public class SearchResultsFragment extends Fragment
         PreferenceManager.setDefaultValues(context, R.xml.settings_preferences, false);
         SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         mPrefs.registerOnSharedPreferenceChangeListener(this);
+
+        // Check preferences whether to show images in the news list
+        boolean showImages = mPrefs.getBoolean("showImages", true);
+
         String ORDER_BY = mPrefs.getString(
                 getString(R.string.settings_order_by_key),
                 getString(R.string.settings_order_by_default));
-
         String SECTION = null;
         String SHOW_FIELDS = getString(R.string.show_fields);
         String API_KEY = getString(R.string.theguardian_api_key);
 
         NewsViewModel model = new NewsViewModel(Controller.create(activity), QUERY, SECTION, ORDER_BY, SHOW_FIELDS, API_KEY);
-
-        // Check preferences whether to show images in the news list
-        boolean showImage = mPrefs.getBoolean("showImages", true);
-
-        if (showImage) {
-            NewsAdapter adapter = new NewsAdapter(context);
-            model.getNewsLiveData().observe(getViewLifecycleOwner(), adapter::submitList);
-            binding.recyclerView.setAdapter(adapter);
-        } else {
-            NewsExtraAdapter adapter = new NewsExtraAdapter(context);
-            model.getNewsLiveData().observe(getViewLifecycleOwner(), adapter::submitList);
-            binding.recyclerView.setAdapter(adapter);
-        }
+        NewsAdapter adapter = new NewsAdapter(context, showImages);
+        model.getNewsLiveData().observe(getViewLifecycleOwner(), adapter::submitList);
+        binding.recyclerView.setAdapter(adapter);
 
         ConnectionLiveData connectionLiveData = new ConnectionLiveData(activity);
         connectionLiveData.observe(getViewLifecycleOwner(), new Observer<ConnectionModel>() {

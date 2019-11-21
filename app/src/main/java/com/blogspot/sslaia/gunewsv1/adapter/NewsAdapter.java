@@ -21,10 +21,12 @@ import com.squareup.picasso.Picasso;
 public class NewsAdapter extends PagedListAdapter<News, RecyclerView.ViewHolder> {
 
     private Context context;
+    private boolean showImages;
 
-    public NewsAdapter(Context context) {
+    public NewsAdapter(Context context, boolean showImages) {
         super(News.DIFF_CALLBACK);
         this.context = context;
+        this.showImages = showImages;
     }
 
     @NonNull
@@ -55,11 +57,17 @@ public class NewsAdapter extends PagedListAdapter<News, RecyclerView.ViewHolder>
 
             String byline = news.getFields().getAuthor() == null
                     || news.getFields().getAuthor().isEmpty() ? context.getString(R.string.not_available) : news.getFields().getAuthor();
-            if (news.getFields().getImage() == null
-                    || news.getFields().getImage().isEmpty()) {
-                binding.newsImage.setVisibility(View.GONE);
+
+            if (showImages) {
+                if (news.getFields().getImage() == null
+                        || news.getFields().getImage().isEmpty()) {
+                    binding.newsImage.setVisibility(View.GONE);
+                } else {
+                    Picasso.get().load(news.getFields().getImage())
+                            .resize(356, 200).centerCrop().into(binding.newsImage);
+                }
             } else {
-                Picasso.get().load(news.getFields().getImage()).resize(356, 200).centerCrop().into(binding.newsImage);
+                binding.newsImage.setVisibility(View.GONE);
             }
 
             binding.newsDate.setText(String.format(context.getString(R.string.date_format),

@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -26,7 +25,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.blogspot.sslaia.gunewsv1.R;
 import com.blogspot.sslaia.gunewsv1.adapter.NewsAdapter;
-import com.blogspot.sslaia.gunewsv1.adapter.NewsExtraAdapter;
 import com.blogspot.sslaia.gunewsv1.databinding.NewsActivityBinding;
 import com.blogspot.sslaia.gunewsv1.helpers.ConnectionLiveData;
 import com.blogspot.sslaia.gunewsv1.helpers.ConnectionModel;
@@ -44,7 +42,7 @@ public class HeadlinesFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         CollapsingToolbarLayout collapsingToolbarLayout = activity.findViewById(R.id.collapsing_toolbar);
-        collapsingToolbarLayout.setTitle(getString(R.string.menu_headlines_title));
+        collapsingToolbarLayout.setTitle(getString(R.string.menu_headlines));
         setHasOptionsMenu(true);
     }
 
@@ -66,6 +64,9 @@ public class HeadlinesFragment extends Fragment {
         PreferenceManager.setDefaultValues(context, R.xml.settings_preferences, false);
         SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
+        // Check preferences whether to show images in the news list
+        boolean showImages = mPrefs.getBoolean("showImages", true);
+
         String QUERY = null;
         String SECTION = null;
         String ORDER_BY = getString(R.string.order_by_newest);
@@ -73,19 +74,9 @@ public class HeadlinesFragment extends Fragment {
         String API_KEY = getString(R.string.theguardian_api_key);
 
         NewsViewModel model = new NewsViewModel(Controller.create(activity), QUERY, SECTION, ORDER_BY, SHOW_FIELDS, API_KEY);
-
-        // Check preferences whether to show images in the news list
-        boolean showImage = mPrefs.getBoolean("showImages", true);
-
-        if (showImage) {
-            NewsAdapter adapter = new NewsAdapter(context);
-            model.getNewsLiveData().observe(getViewLifecycleOwner(), adapter::submitList);
-            binding.recyclerView.setAdapter(adapter);
-        } else {
-            NewsExtraAdapter adapter = new NewsExtraAdapter(context);
-            model.getNewsLiveData().observe(getViewLifecycleOwner(), adapter::submitList);
-            binding.recyclerView.setAdapter(adapter);
-        }
+        NewsAdapter adapter = new NewsAdapter(context, showImages);
+        model.getNewsLiveData().observe(getViewLifecycleOwner(), adapter::submitList);
+        binding.recyclerView.setAdapter(adapter);
 
         // Thank for Saurabh(aqua) for this simple connectivity solution solution
         // https://gist.github.com/aqua30/e16509f70176b6770a3373aa08cf29a3

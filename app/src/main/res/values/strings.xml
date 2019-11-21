@@ -31,7 +31,7 @@
     <string name="menu_education">Education</string>
     <string name="menu_family">Family</string>
     <string name="menu_hrights">Human Rights</string>
-    <string name="menu_opinion">Opinion</string>
+    <string name="menu_opinion">Opinions</string>
     <string name="menu_politics">Politics</string>
     <string name="menu_sport">Sport</string>
     <string name="menu_technology">Technology</string>
@@ -60,7 +60,7 @@
 
     <string name="about_the_app">About GuNews</string>
     <string name="about_me_header">About Me</string>
-    <string name="about_me">Quite late to late to coding, but I have been always interested in IT.\n\nSo when I hadn\'t started my official Android programming course yet, I was running a project I called the Nias Keyboard Project. Basically coding for Android before learning how to code :)\n\nI have a few apps ideas so I\'m looking forward to learning enough and starting real work!\n\nBTW the Udacity\'s nanodegree program in Android Basics I accomplished in July 2019 is only the beginning.\n\nPlease don\'t hesitate to giving me feedback. Just reach out by clicking on this floating action bar or by sending feedback in the app Settings.</string>
+    <string name="about_me">I\'m new to Android programming and the Udacity\'s nanodegree program has helped me getting started.\n\nPlease give me feedback by sending feedback in the app Settings.</string>
     <string name="attribution"><b>News source</b>: theguardian.com, one of the few trusted news sources nowadays. <i>So guaranteed no fake</i>.\n\n<b>Code source</b>: The app used the example app by Anitaa Murthy (https://github.com/anitaa1990/PagingLibrary-Sample) as starting point. Some particular solutions are from stockoverflow.com and clearly referenced in the code.\n\n<b>Image</b>: Earth by WikiImages (https://pixabay.com/photos/earth-soil-creep-moon-lunar-surface-11014 )</string>
 
     <!-- Various -->

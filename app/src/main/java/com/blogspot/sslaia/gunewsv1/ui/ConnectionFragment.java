@@ -20,18 +20,18 @@ import com.blogspot.sslaia.gunewsv1.R;
 import com.blogspot.sslaia.gunewsv1.helpers.ConnectionLiveData;
 import com.blogspot.sslaia.gunewsv1.helpers.ConnectionModel;
 
-public class NoConnectionFragment extends Fragment {
+public class ConnectionFragment extends Fragment {
 
     private Activity activity;
     private Context context;
 
-    public NoConnectionFragment() {
+    public ConnectionFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_no_connection, container, false);
+        return inflater.inflate(R.layout.fragment_connection, container, false);
     }
 
     @Override

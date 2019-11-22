@@ -66,7 +66,7 @@
     <!-- Various -->
 
     <string name="news_image">News related image</string>
-    <string name="no_internet_message">No Internet.\n\nPlease check the Internet connection.\nTurn on WiFi or mobile data.</string>
+    <string name="no_connection">No Internet.\n\nPlease check the Internet connection.\nTurn on WiFi or mobile data.</string>
     <string name="content_description">News related image</string>
 
     <!-- Settings preferences -->

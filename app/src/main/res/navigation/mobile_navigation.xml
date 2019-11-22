@@ -165,9 +165,9 @@
 
     <fragment
         android:id="@+id/nav_connection"
-        android:name="com.blogspot.sslaia.gunewsv1.ui.NoConnectionFragment"
+        android:name="com.blogspot.sslaia.gunewsv1.ui.ConnectionFragment"
         android:label="@string/menu_connection"
-        tools:layout="@layout/fragment_no_connection">
+        tools:layout="@layout/fragment_connection">
         <action
             android:id="@+id/connection_to_headlines"
             app:destination="@id/nav_headlines"

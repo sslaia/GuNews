@@ -33,7 +33,7 @@
     <string name="menu_hrights">Human Rights</string>
     <string name="menu_opinion">Opinions</string>
     <string name="menu_politics">Politics</string>
-    <string name="menu_sport">Sport</string>
+    <string name="menu_sport">Sports</string>
     <string name="menu_technology">Technology</string>
     <string name="menu_wellbeing">Wellbeing</string>
     <string name="menu_about">About</string>
@@ -42,8 +42,6 @@
     <string name="menu_search">Search results</string>
     <string name="menu_search2">The search results</string>
 
-    <string name="date_format" formatted="false">%s at %s by</string>
-    <string name="not_available">N/A</string>
     <string name="query_culture" translatable="false">culture entertainment media</string>
     <string name="query_education" translatable="false">education school children</string>
     <string name="query_family" translatable="false">family society community</string>
@@ -64,10 +62,11 @@
     <string name="attribution"><b>News source</b>: theguardian.com, one of the few trusted news sources nowadays. <i>So guaranteed no fake</i>.\n\n<b>Code source</b>: The app used the example app by Anitaa Murthy (https://github.com/anitaa1990/PagingLibrary-Sample) as starting point. Some particular solutions are from stockoverflow.com and clearly referenced in the code.\n\n<b>Image</b>: Earth by WikiImages (https://pixabay.com/photos/earth-soil-creep-moon-lunar-surface-11014 )</string>
 
     <!-- Various -->
-
-    <string name="news_image">News related image</string>
     <string name="no_connection">No Internet.\n\nPlease check the Internet connection.\nTurn on WiFi or mobile data.</string>
     <string name="content_description">News related image</string>
+    <string name="date_format" formatted="false">%s at %s by</string>
+    <string name="not_available">N/A</string>
+    <string name="search_tips">You can refine the search results by going to <b>Settings</b> and set the order by to <b>relevance</b>, <b>newest</b> or <b>oldest</b>. Use double quote (<b>\"</b>) for exact search word order.</string>
 
     <!-- Settings preferences -->
     <string name="newsadapter_switch">Switch off to hide images</string>

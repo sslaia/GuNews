@@ -121,7 +121,7 @@
 
     <fragment
         android:id="@+id/nav_search"
-        android:name="com.blogspot.sslaia.gunewsv1.ui.SearchResultsFragment"
+        android:name="com.blogspot.sslaia.gunewsv1.ui.SearchFragment"
         android:label="@string/menu_search"
         tools:layout="@layout/fragment_recyclerview">
         <argument
@@ -129,32 +129,12 @@
             android:defaultValue="noQuery"
             app:argType="string" />
         <action
-            android:id="@+id/search_to_search2"
-            app:destination="@id/nav_search2"
-            app:enterAnim="@anim/slide_in_right"/>
-        <action
             android:id="@+id/search_to_connection"
             app:destination="@id/nav_connection"
             app:enterAnim="@anim/slide_in_left"/>
-    </fragment>
-
-    <fragment
-        android:id="@+id/nav_search2"
-        android:name="com.blogspot.sslaia.gunewsv1.ui.SearchResults2Fragment"
-        android:label="@string/menu_search"
-        tools:layout="@layout/fragment_recyclerview">
-        <argument
-            android:name="searchWord"
-            android:defaultValue="noQuery"
-            app:argType="string" />
         <action
-            android:id="@+id/search2_to_search"
-            app:destination="@id/nav_search"
-            app:enterAnim="@anim/slide_in_right"/>
-        <action
-            android:id="@+id/search2_to_connection"
-            app:destination="@id/nav_connection"
-            app:enterAnim="@anim/slide_in_left"/>
+            android:id="@+id/search_to_self"
+            app:destination="@id/nav_search" />
     </fragment>
 
     <fragment

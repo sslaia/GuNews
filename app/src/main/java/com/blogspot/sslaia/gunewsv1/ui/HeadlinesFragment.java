@@ -119,7 +119,7 @@ public class HeadlinesFragment extends Fragment {
         HeadlinesFragmentDirections.HeadlinesToSearch action =
                 HeadlinesFragmentDirections.headlinesToSearch();
         action.setSearchQuery(query);
-        Navigation.findNavController(activity, R.id.nav_host_fragment).navigate(action);
+        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(action);
     }
 
     @Override

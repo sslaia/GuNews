@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 R.id.nav_headlines, R.id.nav_education, R.id.nav_culture, R.id.nav_family,
                 R.id.nav_hrights, R.id.nav_opinion, R.id.nav_politics, R.id.nav_sport,
                 R.id.nav_technology, R.id.nav_wellbeing, R.id.nav_about,
-                R.id.nav_connection, R.id.nav_search, R.id.nav_search2)
+                R.id.nav_connection, R.id.nav_search)
                 .setDrawerLayout(drawer)
                 .build();
 

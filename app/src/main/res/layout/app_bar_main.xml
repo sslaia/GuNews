@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="176dp"
                 android:alpha=".35"
-                android:contentDescription="@string/news_image"
+                android:contentDescription="@string/content_description"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/earth" />
 

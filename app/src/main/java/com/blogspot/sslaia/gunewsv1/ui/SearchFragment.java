@@ -3,14 +3,8 @@ package com.blogspot.sslaia.gunewsv1.ui;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,6 +17,15 @@ import androidx.navigation.Navigation;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.text.Html;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+
 import com.blogspot.sslaia.gunewsv1.R;
 import com.blogspot.sslaia.gunewsv1.adapter.NewsAdapter;
 import com.blogspot.sslaia.gunewsv1.databinding.NewsActivityBinding;
@@ -32,25 +35,23 @@ import com.blogspot.sslaia.gunewsv1.helpers.Controller;
 import com.blogspot.sslaia.gunewsv1.viewmodel.NewsViewModel;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
-public class SearchResults2Fragment extends Fragment
+public class SearchFragment extends Fragment
         implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-    private NewsAdapter adapter;
-    private NewsViewModel model;
     private NewsActivityBinding binding;
-    private SharedPreferences mPrefs;
     private Activity activity;
     private Context context;
-    private String QUERY;
+    private String QUERY = null;
+    private boolean showImages = true;
 
-    public SearchResults2Fragment() {
+    public SearchFragment() {
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         CollapsingToolbarLayout collapsingToolbarLayout = activity.findViewById(R.id.collapsing_toolbar);
-        collapsingToolbarLayout.setTitle(getString(R.string.menu_search2));
+        collapsingToolbarLayout.setTitle(getString(R.string.menu_search));
         setHasOptionsMenu(true);
     }
 
@@ -70,19 +71,19 @@ public class SearchResults2Fragment extends Fragment
 
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
-        SearchResults2FragmentArgs args = SearchResults2FragmentArgs.fromBundle(getArguments());
-        if (args.getSearchWord().contains("noQuery")) {
-            QUERY = null;
-        } else {
-            QUERY = args.getSearchWord();
-        }
-
-        PreferenceManager.setDefaultValues(getContext(), R.xml.settings_preferences, false);
-        SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        PreferenceManager.setDefaultValues(context, R.xml.settings_preferences, false);
+        SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         mPrefs.registerOnSharedPreferenceChangeListener(this);
 
-        // Check preferences whether to show images in the news list
-        boolean showImages = mPrefs.getBoolean("showImages", true);
+        SearchFragmentArgs args = SearchFragmentArgs.fromBundle(getArguments());
+        if (args.getSearchQuery().contains("noQuery")) {
+            QUERY = null;
+            binding.searchTips.setVisibility(View.GONE);
+        } else {
+            QUERY = args.getSearchQuery();
+            showImages = false;
+            binding.searchTips.setVisibility(View.VISIBLE);
+        }
 
         String ORDER_BY = mPrefs.getString(
                 getString(R.string.settings_order_by_key),
@@ -102,7 +103,7 @@ public class SearchResults2Fragment extends Fragment
             public void onChanged(ConnectionModel connection) {
                 if (!connection.getIsConnected()) {
                     NavController navController = Navigation.findNavController(activity, R.id.nav_host_fragment);
-                    navController.navigate(R.id.search2_to_connection);
+                    navController.navigate(R.id.search_to_connection);
                 }
             }
         });
@@ -132,8 +133,8 @@ public class SearchResults2Fragment extends Fragment
     }
 
     private void navigateToSearch(String query) {
-        SearchResults2FragmentDirections.Search2ToSearch action =
-                SearchResults2FragmentDirections.search2ToSearch();
+        SearchFragmentDirections.SearchToSelf action =
+                SearchFragmentDirections.searchToSelf();
         action.setSearchQuery(query);
         Navigation.findNavController(activity, R.id.nav_host_fragment).navigate(action);
     }

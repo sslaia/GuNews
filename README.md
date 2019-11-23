@@ -7,7 +7,11 @@ one of few trustworthy news sources out there
 in this time of fake news epidemic.
 
 
-**Please note**: The app shows headlines with news related images. This could eat into your data allowance, especially if you are on limited cellular data. To reduce data usage, go to the *Settings* and switch off *Show images in the news list*.
+**Please note**:
+ 
+1. The app shows headlines with news related images. This could eat into your data allowance, especially if you are on limited cellular data. To reduce data usage, go to the *Settings* and switch off *Show images in the news list*.
+
+2. You can refine the search results by adjusting the order by in Settings. Try with relevance, newest or oldest for better results.
 
 
 ## GuNews and GoNews?

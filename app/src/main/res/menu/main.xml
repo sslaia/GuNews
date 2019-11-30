@@ -2,11 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/action_share"
         android:icon="@drawable/ic_share_white"
         android:title="@string/action_share"
@@ -16,5 +11,15 @@
         android:id="@+id/action_feedback"
         android:icon="@drawable/ic_feedback_white"
         android:title="@string/action_feedback"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="11"
+        android:title="@string/menu_about"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/menu_settings"
         app:showAsAction="never" />
 </menu>

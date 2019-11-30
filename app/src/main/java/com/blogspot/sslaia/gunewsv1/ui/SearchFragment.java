@@ -3,7 +3,6 @@ package com.blogspot.sslaia.gunewsv1.ui;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,7 +16,6 @@ import androidx.navigation.Navigation;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -71,7 +69,7 @@ public class SearchFragment extends Fragment
 
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
-        PreferenceManager.setDefaultValues(context, R.xml.settings_preferences, false);
+        PreferenceManager.setDefaultValues(context, R.xml.settings, false);
         SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         mPrefs.registerOnSharedPreferenceChangeListener(this);
 

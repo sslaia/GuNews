@@ -53,7 +53,7 @@ public class PoliticsFragment extends Fragment
 
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
-        PreferenceManager.setDefaultValues(getContext(), R.xml.settings_preferences, false);
+        PreferenceManager.setDefaultValues(getContext(), R.xml.settings, false);
         SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         mPrefs.registerOnSharedPreferenceChangeListener(this);
 

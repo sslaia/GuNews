@@ -53,7 +53,7 @@ public class CultureFragment extends Fragment
 
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
-        PreferenceManager.setDefaultValues(context, R.xml.settings_preferences, false);
+        PreferenceManager.setDefaultValues(context, R.xml.settings, false);
         SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         mPrefs.registerOnSharedPreferenceChangeListener(this);
 

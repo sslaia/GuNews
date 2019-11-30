@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_headlines, R.id.nav_education, R.id.nav_culture, R.id.nav_family,
                 R.id.nav_hrights, R.id.nav_opinion, R.id.nav_politics, R.id.nav_sport,
-                R.id.nav_technology, R.id.nav_wellbeing, R.id.nav_about,
-                R.id.nav_connection, R.id.nav_search)
+                R.id.nav_technology, R.id.nav_wellbeing, R.id.nav_connection, R.id.nav_search,
+                R.id.action_about, R.id.action_settings)
                 .setDrawerLayout(drawer)
                 .build();
 
@@ -66,10 +66,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                Intent intentSettings = new Intent(MainActivity.this, SettingsActivity.class);
-                startActivity(intentSettings);
-                return true;
             case R.id.action_share:
                 Intent menuShare = new Intent(Intent.ACTION_SEND);
                 menuShare.setType("text/plain");
@@ -86,6 +82,12 @@ public class MainActivity extends AppCompatActivity {
                 if (menuFeedback.resolveActivity(getPackageManager()) != null) {
                     startActivity(menuFeedback);
                 }
+                return true;
+            case R.id.action_about:
+                Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.action_about);
+                return true;
+            case R.id.action_settings:
+                Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.action_settings);
                 return true;
             default:
         }

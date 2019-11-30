@@ -56,7 +56,7 @@ public class WellbeingFragment extends Fragment
 
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
-        PreferenceManager.setDefaultValues(getContext(), R.xml.settings_preferences, false);
+        PreferenceManager.setDefaultValues(getContext(), R.xml.settings, false);
         mPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         mPrefs.registerOnSharedPreferenceChangeListener(this);
 

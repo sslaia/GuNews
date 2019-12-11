@@ -41,8 +41,8 @@ public class NewsViewModel extends ViewModel {
         PagedList.Config pagedListConfig =
                 (new PagedList.Config.Builder())
                         .setEnablePlaceholders(false)
-                        .setInitialLoadSizeHint(10)
-                        .setPageSize(20).build();
+                        .setInitialLoadSizeHint(5)
+                        .setPageSize(10).build();
 
         newsLiveData = (new LivePagedListBuilder(newsDataSourceFactory, pagedListConfig))
                 .setFetchExecutor(executor)

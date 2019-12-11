@@ -32,17 +32,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/nav_education"
-        android:name="com.blogspot.sslaia.gunewsv1.ui.EducationFragment"
-        android:label="@string/menu_education"
-        tools:layout="@layout/fragment_recyclerview">
-        <action
-            android:id="@+id/education_to_connection"
-            app:destination="@id/nav_connection"
-            app:enterAnim="@anim/slide_in_left" />
-    </fragment>
-
-    <fragment
         android:id="@+id/nav_family"
         android:name="com.blogspot.sslaia.gunewsv1.ui.FamilyFragment"
         android:label="@string/menu_family"
@@ -60,17 +49,6 @@
         tools:layout="@layout/fragment_recyclerview">
         <action
             android:id="@+id/hrigts_to_connection"
-            app:destination="@id/nav_connection"
-            app:enterAnim="@anim/slide_in_left" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/nav_opinion"
-        android:name="com.blogspot.sslaia.gunewsv1.ui.OpinionFragment"
-        android:label="@string/menu_opinion"
-        tools:layout="@layout/fragment_recyclerview">
-        <action
-            android:id="@+id/opinion_to_connection"
             app:destination="@id/nav_connection"
             app:enterAnim="@anim/slide_in_left" />
     </fragment>
@@ -104,17 +82,6 @@
         tools:layout="@layout/fragment_recyclerview">
         <action
             android:id="@+id/technology_to_connection"
-            app:destination="@id/nav_connection"
-            app:enterAnim="@anim/slide_in_left" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/nav_wellbeing"
-        android:name="com.blogspot.sslaia.gunewsv1.ui.WellbeingFragment"
-        android:label="@string/menu_wellbeing"
-        tools:layout="@layout/fragment_recyclerview">
-        <action
-            android:id="@+id/wellbeing_to_connection"
             app:destination="@id/nav_connection"
             app:enterAnim="@anim/slide_in_left" />
     </fragment>

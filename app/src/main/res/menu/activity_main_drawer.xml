@@ -13,10 +13,6 @@
             android:icon="@drawable/ic_menu_culture"
             android:title="@string/menu_culture" />
         <item
-            android:id="@+id/nav_education"
-            android:icon="@drawable/ic_menu_education"
-            android:title="@string/menu_education" />
-        <item
             android:id="@+id/nav_family"
             android:icon="@drawable/ic_menu_family"
             android:title="@string/menu_family" />
@@ -24,10 +20,6 @@
             android:id="@+id/nav_hrights"
             android:icon="@drawable/ic_menu_hrights"
             android:title="@string/menu_hrights" />
-        <item
-            android:id="@+id/nav_opinion"
-            android:icon="@drawable/ic_menu_opinion"
-            android:title="@string/menu_opinion" />
         <item
             android:id="@+id/nav_politics"
             android:icon="@drawable/ic_menu_politics"
@@ -40,16 +32,12 @@
             android:id="@+id/nav_technology"
             android:icon="@drawable/ic_menu_technology"
             android:title="@string/menu_technology" />
-        <item
-            android:id="@+id/nav_wellbeing"
-            android:icon="@drawable/ic_menu_wellbeing"
-            android:title="@string/menu_wellbeing" />
     </group>
 
     <item android:title="Attribution">
         <menu>
             <item
-                android:id="@+id/nav_about"
+                android:id="@+id/action_about"
                 android:icon="@drawable/ic_menu_about"
                 android:title="@string/action_about" />
         </menu>

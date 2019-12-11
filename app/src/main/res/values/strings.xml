@@ -44,13 +44,10 @@
     <string name="menu_settings">Settings</string>
 
     <string name="query_culture" translatable="false">culture entertainment media</string>
-    <string name="query_education" translatable="false">education school children</string>
-    <string name="query_family" translatable="false">family society community</string>
+    <string name="query_family" translatable="false">family community education school</string>
     <string name="query_hrights" translatable="false">\"human rights\"</string>
     <string name="query_sport" translatable="false">football sport</string>
     <string name="query_technology" translatable="false">technology science android</string>
-    <string name="query_wellbeing" translatable="false">health wellbeing lifestyle environment food</string>
-    <string name="section_opinion" translatable="false">commentisfree</string>
     <string name="section_politics" translatable="false">politics</string>
     <string name="show_fields" translatable="false">byline,shortUrl,thumbnail</string>
     <string name="order_by_newest" translatable="false">newest</string>

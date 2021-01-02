@@ -10,6 +10,7 @@
     <string name="action_share">Share</string>
     <string name="action_search">Search</string>
     <string name="action_about">About</string>
+    <string name="action_gunews">Content Policy</string>
 
     <string name="title_activity_settings">Settings</string>
     <string name="settings_order_by_relevance_label">Relevance</string>
@@ -36,6 +37,7 @@
     <string name="menu_sport">Sports</string>
     <string name="menu_technology">Technology</string>
     <string name="menu_wellbeing">Wellbeing</string>
+    <string name="menu_gunews">Content policy</string>
     <string name="menu_about">About</string>
     <string name="menu_attribution">Attribution</string>
     <string name="menu_connection">No connection</string>
@@ -70,5 +72,35 @@
     <string name="newsadapter_switch">Switch off to hide images</string>
     <string name="newsadapter_switch_label">Show images in the news list</string>
     <string name="newsadapter_with_images">showImages</string>
+
+    <!-- Content policy -->
+    <string name="gunews"><b>NEWS SOURCE</b>\n\n
+
+1. All news in GuNews app are aggregated from a single source: theguardian.com.\n
+2. This app makes use of the free contents provided by theguardian.com through https://open-platform.theguardian.com, which is open to every one and publicly available through their api for developers.\n
+3. No other news sources are used, as the main goal of the app is to consume trustworthy news. In this app developer\'s opinion, theguardian.com is one of the few media out there that is widely acknowledged and trusted.\n\n
+
+<b>NEWS ITEM AGGREGATED</b>\n\n
+
+4. From vast contents available on theguardian.com, the GuNews app concentrates on aggregating the following topics: culture, family, human rights, politics, sports and technology.\n
+5. As the open and free access provided by theguardian.com includes the vast database of their media history, the app can present news item from recent times as well as from the previous century. In the app Settings the user can sort the news by publishing date (old, recent or relevancy).\n\n
+
+
+<b>ADS SHOWN IN THE ARTICLE</b>\n\n
+
+6. GuNews app does not contain ads.\n
+7. However GuNews is transparent and gives the possibility to the user to see the original website published by theguardian.com through a WebView. The original website from theguardian.com may show ads, which are the responsibility of theguardian.com and not related in anyway with the GuNews.\n
+8. If the user does not want to see ads, please do not go to the original website of the published news.\n\n
+
+<b>OWNERSHIP</b>\n\n
+
+9. As all the news are from theguardian.com and its contributors, GuNews does not have any ownership of the news accessible through the app.\n\n
+
+<b>CONTACT INFORMATION</b>\n\n
+
+10. For all enquiries relating to news contents from theguardian.com please contact them at \n
+Email: customer.help@theguardian.com\n
+Phone: 0330 333 6767 (UK).
+</string>
 
 </resources>

@@ -4,11 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import android.view.MenuItem;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
@@ -46,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
                 R.id.nav_headlines, R.id.nav_culture, R.id.nav_family,
                 R.id.nav_hrights, R.id.nav_politics, R.id.nav_sport,
                 R.id.nav_technology, R.id.nav_connection, R.id.nav_search,
-                R.id.action_about, R.id.action_settings)
-                .setDrawerLayout(drawer)
+                R.id.action_gunews, R.id.action_about, R.id.action_settings)
+                .setOpenableLayout(drawer)
                 .build();
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -65,32 +61,27 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()) {
-            case R.id.action_share:
-                Intent menuShare = new Intent(Intent.ACTION_SEND);
-                menuShare.setType("text/plain");
-                menuShare.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
-                menuShare.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_text));
-                if (menuShare.resolveActivity(getPackageManager()) != null) {
-                    startActivity(menuShare);
-                }
-                return true;
-            case R.id.action_feedback:
-                Intent menuFeedback = new Intent(Intent.ACTION_SENDTO);
-                menuFeedback.setData(Uri.parse(getString(R.string.feedback_mailto)));
-                menuFeedback.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.feedback_subject));
-                if (menuFeedback.resolveActivity(getPackageManager()) != null) {
-                    startActivity(menuFeedback);
-                }
-                return true;
-            case R.id.action_about:
-                Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.action_about);
-                return true;
-            case R.id.action_settings:
+        int id = item.getItemId();
+
+        if (id == R.id.action_share) {
+            Intent menuShare = new Intent(Intent.ACTION_SEND);
+            menuShare.setType("text/plain");
+            menuShare.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
+            menuShare.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_text));
+            startActivity(menuShare);
+        } else if (id == R.id.action_feedback) {
+            Intent menuFeedback = new Intent(Intent.ACTION_SENDTO);
+            menuFeedback.setData(Uri.parse(getString(R.string.feedback_mailto)));
+            menuFeedback.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.feedback_subject));
+            startActivity(menuFeedback);
+        } else if (id == R.id.action_about) {
+            Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.action_about);
+        } else if (id == R.id.action_gunews) {
+            Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.action_gunews);
+        } else {
                 Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.action_settings);
-                return true;
-            default:
         }
+
         return super.onOptionsItemSelected(item);
     }
 

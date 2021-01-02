@@ -37,6 +37,10 @@
     <item android:title="Attribution">
         <menu>
             <item
+                android:id="@+id/action_gunews"
+                android:icon="@drawable/ic_menu_about"
+                android:title="@string/action_gunews" />
+            <item
                 android:id="@+id/action_about"
                 android:icon="@drawable/ic_menu_about"
                 android:title="@string/action_about" />

@@ -42,7 +42,7 @@ public class HeadlinesFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         CollapsingToolbarLayout collapsingToolbarLayout = activity.findViewById(R.id.collapsing_toolbar);
-        collapsingToolbarLayout.setTitle(getString(R.string.menu_headlines));
+//        collapsingToolbarLayout.setTitle(getString(R.string.menu_headlines));
         setHasOptionsMenu(true);
     }
 

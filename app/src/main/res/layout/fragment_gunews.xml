@@ -19,34 +19,20 @@
             <TextView
                 android:id="@+id/about_the_app"
                 style="@style/AboutHeaderStyle"
-                android:text="@string/about_the_app"
+                android:text="@string/menu_gunews"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/attribution"
-                android:text="@string/attribution"
-                app:layout_constraintEnd_toStartOf="parent"
+                style="@style/AboutBodyStyle"
+                android:text="@string/gunews"
+                android:linksClickable="true"
+                android:autoLink="web"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/about_the_app"
-                style="@style/AboutBodyStyle" />
-
-            <TextView
-                android:id="@+id/about_header"
-                style="@style/AboutHeaderStyle"
-                android:text="@string/about_me_header"
-                app:layout_constraintEnd_toStartOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/attribution" />
-
-            <TextView
-                android:id="@+id/about_body"
-                android:text="@string/about_me"
-                app:layout_constraintEnd_toStartOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/about_header"
-                style="@style/AboutBodyStyle" />
+                app:layout_constraintTop_toBottomOf="@id/about_the_app" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

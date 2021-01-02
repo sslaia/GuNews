@@ -122,6 +122,12 @@
         tools:layout="@layout/fragment_about" />
 
     <fragment
+        android:id="@+id/action_gunews"
+        android:name="com.blogspot.sslaia.gunewsv1.ui.GunewsFragment"
+        android:label="@string/menu_gunews"
+        tools:layout="@layout/fragment_gunews" />
+
+    <fragment
         android:id="@+id/action_settings"
         android:name="com.blogspot.sslaia.gunewsv1.ui.SettingsFragment"
         android:label="@string/menu_settings">
